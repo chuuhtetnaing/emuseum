@@ -1,0 +1,53 @@
+
+			#main_nav_bar{
+				background-color:rgba(41, 41, 41, 1.0);
+				border-top: 2px solid rgba(31, 172, 166, 1.0);	
+			}
+			#main_nav_bar a{
+				font-family: "Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif";
+				color:white;
+			}
+			#main_nav_bar a:hover{
+				color: rgba(31, 172, 166, 1.0);
+			}
+			#main_nav_bar_brand_img{
+				padding: 10px;
+				margin-left: 50px;
+			}
+			#main_nav_bar_content_ul{
+				margin-left: 300px;
+			}
+			.main_nav_bar_content_li{
+				margin-right: 50px;
+			}
+
+			.recently_join_card{
+				width:100%;
+				height: 240px;
+			}
+			.main_slide_show_img{
+				width:100%;
+				height: 680px;
+			}
+			#carouselExampleIndicators{
+				height: 680px;
+			}
+			#card_body{
+				
+				text-align: center;
+			}
+			#card_body h2{
+				padding: 30px 0 15px 0;
+				font-family: "Comfortaa";
+				font-size:30px;
+				font-synthesis: weight style;
+				font-kerning: auto;
+				font-style: normal;
+				border-bottom: 2px solid rgba(31, 172, 166, 1.0);
+				margin: 0 auto 20px auto;
+				width: 400px;
+			}
+
+			#navbarSupportedContent{
+				padding-top: 10px;
+			}

@@ -1,0 +1,2 @@
+module EmuseumHelper
+end
