@@ -1,0 +1,14 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+    <% @backgrounds.each do |background| %>
+        <%= background.content.html_safe %>
+        <%= link_to 'Edit', edit_background_path(background) %>
+        <td><%= link_to 'Destroy', background, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <%if @backgrounds.empty? %>
+    <p> There is no Background information. Please create one</p>
+    <%= link_to 'New Background', new_background_path %>
+    <%end%>
+</div>
+

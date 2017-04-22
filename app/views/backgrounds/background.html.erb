@@ -1,0 +1,11 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+  <%unless @backgrounds.empty? %>
+    <% @backgrounds.each do |background| %>
+        <%= background.content.html_safe %>
+    <% end %>
+  <%else%>
+    <p>We are updating the background information</p>
+  <%end%>
+</div>
