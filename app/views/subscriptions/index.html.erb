@@ -1,0 +1,117 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Subscriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Org name thai</th>
+      <th>Org abbr thai</th>
+      <th>Org name eng</th>
+      <th>Org abbr eng</th>
+      <th>Type of org private sector</th>
+      <th>Type of org government sector</th>
+      <th>Type of org education institute</th>
+      <th>Type of org other</th>
+      <th>Street address</th>
+      <th>Tambon</th>
+      <th>Amphur</th>
+      <th>Province</th>
+      <th>Postal code</th>
+      <th>Telephone</th>
+      <th>House in temple</th>
+      <th>House in local museum</th>
+      <th>House in government agency or uni</th>
+      <th>House in other</th>
+      <th>Museum type art museum</th>
+      <th>Museum type modern art museum</th>
+      <th>Museum type natural history museum</th>
+      <th>Museum type science museum or machinery museum</th>
+      <th>Museum type anthropology museum</th>
+      <th>Museum type history and archaeology museum</th>
+      <th>Museum type local museum</th>
+      <th>Museum type university or institute museum</th>
+      <th>Museum type other</th>
+      <th>Exhibition type permanent collection</th>
+      <th>Exhibition type temporary rotated collection</th>
+      <th>Displayed object type pottery</th>
+      <th>Displayed object type natural history</th>
+      <th>Displayed object type public health medicine</th>
+      <th>Displayed object type religious</th>
+      <th>Displayed object type archaeology</th>
+      <th>Displayed object type history</th>
+      <th>Displayed object type way of life local wisdom</th>
+      <th>Displayed object type historical house building</th>
+      <th>Displayed object type textile clothing</th>
+      <th>Displayed object type performance arts</th>
+      <th>Displayed object type tribes</th>
+      <th>Displayed object type biography</th>
+      <th>Displayed object type architecture</th>
+      <th>Displayed object type military war</th>
+      <th>Displayed object type science and technology</th>
+      <th>Displayed object type other</th>
+      <th>Current website</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.org_name_thai %></td>
+        <td><%= subscription.org_abbr_thai %></td>
+        <td><%= subscription.org_name_eng %></td>
+        <td><%= subscription.org_abbr_eng %></td>
+        <td><%= subscription.type_of_org_private_sector %></td>
+        <td><%= subscription.type_of_org_government_sector %></td>
+        <td><%= subscription.type_of_org_education_institute %></td>
+        <td><%= subscription.type_of_org_other %></td>
+        <td><%= subscription.street_address %></td>
+        <td><%= subscription.tambon %></td>
+        <td><%= subscription.amphur %></td>
+        <td><%= subscription.province %></td>
+        <td><%= subscription.postal_code %></td>
+        <td><%= subscription.telephone %></td>
+        <td><%= subscription.house_in_temple %></td>
+        <td><%= subscription.house_in_local_museum %></td>
+        <td><%= subscription.house_in_government_agency_or_uni %></td>
+        <td><%= subscription.house_in_other %></td>
+        <td><%= subscription.museum_type_art_museum %></td>
+        <td><%= subscription.museum_type_modern_art_museum %></td>
+        <td><%= subscription.museum_type_natural_history_museum %></td>
+        <td><%= subscription.museum_type_science_museum_or_machinery_museum %></td>
+        <td><%= subscription.museum_type_anthropology_museum %></td>
+        <td><%= subscription.museum_type_history_and_archaeology_museum %></td>
+        <td><%= subscription.museum_type_local_museum %></td>
+        <td><%= subscription.museum_type_university_or_institute_museum %></td>
+        <td><%= subscription.museum_type_other %></td>
+        <td><%= subscription.exhibition_type_permanent_collection %></td>
+        <td><%= subscription.exhibition_type_temporary_rotated_collection %></td>
+        <td><%= subscription.displayed_object_type_pottery %></td>
+        <td><%= subscription.displayed_object_type_natural_history %></td>
+        <td><%= subscription.displayed_object_type_public_health_medicine %></td>
+        <td><%= subscription.displayed_object_type_religious %></td>
+        <td><%= subscription.displayed_object_type_archaeology %></td>
+        <td><%= subscription.displayed_object_type_history %></td>
+        <td><%= subscription.displayed_object_type_way_of_life_local_wisdom %></td>
+        <td><%= subscription.displayed_object_type_historical_house_building %></td>
+        <td><%= subscription.displayed_object_type_textile_clothing %></td>
+        <td><%= subscription.displayed_object_type_performance_arts %></td>
+        <td><%= subscription.displayed_object_type_tribes %></td>
+        <td><%= subscription.displayed_object_type_biography %></td>
+        <td><%= subscription.displayed_object_type_architecture %></td>
+        <td><%= subscription.displayed_object_type_military_war %></td>
+        <td><%= subscription.displayed_object_type_science_and_technology %></td>
+        <td><%= subscription.displayed_object_type_other %></td>
+        <td><%= subscription.current_website %></td>
+        <td><%= link_to 'Show', subscription %></td>
+        <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
+        <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subscription', new_subscription_path %>

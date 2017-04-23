@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Museum Owners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subscription</th>
+      <th>Username</th>
+      <th>Initial Password</th>
+      <th>Organization Name</th>
+      <th>Email Address</th>
+      <th>Current Website</th>
+      <th>Blocked</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @museum_owners.each do |museum_owner| %>
+      <tr>
+        <td><%= museum_owner.subscription_id %></td>
+        <td><%= museum_owner.username %></td>
+        <td><%= museum_owner.password %></td>
+        <td><%= museum_owner.org_name_eng%></td>
+        <td><%= museum_owner.email_address%></td>
+        <td><%= museum_owner.current_website %></td>
+        <% if (museum_owner.blocked) #false%>
+          <td><%= button_to "Unblock", {controller: :museum_owners, action: :unblock, sub_id: museum_owner.id} ,class: "btn btn-success"%></td>
+        <% else %>
+          <td><%= button_to "Block", {controller: :museum_owners, action: :block, sub_id: museum_owner.id} ,class: "btn btn-danger"%></td>
+        <% end %>
+        <td><%= link_to 'Show', museum_owner %></td>
+        <td><%= link_to 'Edit', edit_museum_owner_path(museum_owner) %></td>
+        <td><%= link_to 'Destroy', museum_owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Museum Owner', new_museum_owner_path %>

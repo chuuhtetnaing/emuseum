@@ -1,0 +1,52 @@
+<%= form_for(museum_owner) do |f| %>
+  <% if museum_owner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(museum_owner.errors.count, "error") %> prohibited this museum_owner from being saved:</h2>
+
+      <ul>
+      <% museum_owner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subscription_id %>
+    <%= f.number_field :subscription_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :org_name_eng %>
+    <%= f.text_field :org_name_eng %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_address %>
+    <%= f.text_field :email_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_website %>
+    <%= f.text_field :current_website %>
+  </div>
+
+  <div class="field">
+    <%= f.label :blocked %>
+    <%= f.check_box :blocked %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

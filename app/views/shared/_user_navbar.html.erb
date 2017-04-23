@@ -1,0 +1,27 @@
+<div id="navnavnav">
+  	<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" id="main_nav_bar">
+		
+		  	<%=link_to image_tag("logo.png" , class: "navbar-brand", id: "main_nav_bar_brand_img") %>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+		    <ul class="navbar-nav mr-auto" id="main_nav_bar_content_ul">
+		      <li class="nav-item active main_nav_bar_content_li">
+		        <%= link_to "Home", emuseum_home_url, class: "nav-link"%>
+		      </li>
+		      <li class="nav-item active main_nav_bar_content_li">
+		        <%= link_to "Background", emuseum_background_url, class:"nav-link" %>
+		      </li>
+		      <li class="nav-item active main_nav_bar_content_li">
+		        <%= link_to "News", emuseum_news_url, class: "nav-link" %>
+		      </li>
+		      <li class="nav-item main_nav_bar_content_li">
+		        <%= link_to "Index", "#", class:"nav-link" %>
+		      </li>
+		      <li class="nav-item main_nav_bar_content_li">
+		      	<%= link_to "Subscription", new_subscription_url, class:"nav-link" %>
+		      </li>
+		    </ul>
+		    
+		  </div>
+		</nav>
+		</div>

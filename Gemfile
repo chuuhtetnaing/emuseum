@@ -5,7 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'ckeditor', git: 'https://github.com/chuuhtetnaing/ckeditor'
+gem 'devise'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'paperclip'
 gem 'will_paginate', '~> 3.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

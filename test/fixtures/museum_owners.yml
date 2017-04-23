@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subscription_id: 1
+  username: MyString
+  password: MyString
+  url: MyString
+  blocked: false
+
+two:
+  subscription_id: 1
+  username: MyString
+  password: MyString
+  url: MyString
+  blocked: false

@@ -1,0 +1,254 @@
+<div class="container">
+<%= form_for(subscription) do |f| %>
+  <% if subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% subscription.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :org_name_thai, class: "label" %>
+    <%= f.text_field :org_name_thai %>
+  </div>
+
+  <div class="field">
+    <%= f.label :org_abbr_thai, class: "label"  %>
+    <%= f.text_field :org_abbr_thai %>
+  </div>
+
+  <div class="field">
+    <%= f.label :org_name_eng, class: "label"  %>
+    <%= f.text_field :org_name_eng %>
+  </div>
+
+  <div class="field">
+    <%= f.label :org_abbr_eng, class: "label"  %>
+    <%= f.text_field :org_abbr_eng %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email_address, class: "label" %>
+    <%= f.text_field :email_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_of_org_private_sector, class: "label"  %>
+    <%= f.check_box :type_of_org_private_sector %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_of_org_government_sector, class: "label"  %>
+    <%= f.check_box :type_of_org_government_sector %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_of_org_education_institute, class: "label"  %>
+    <%= f.check_box :type_of_org_education_institute %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_of_org_other, class: "label" %>
+    <%= f.text_field :type_of_org_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street_address, class: "label"  %>
+    <%= f.text_field :street_address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tambon, class: "label"  %>
+    <%= f.text_field :tambon %>
+  </div>
+
+  <div class="field">
+    <%= f.label :amphur, class: "label"  %>
+    <%= f.text_field :amphur %>
+  </div>
+
+  <div class="field">
+    <%= f.label :province, class: "label"  %>
+    <%= f.text_field :province %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code, class: "label"  %>
+    <%= f.number_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone, class: "label"  %>
+    <%= f.number_field :telephone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :house_in_temple, class: "label"  %>
+    <%= f.check_box :house_in_temple %>
+  </div>
+
+  <div class="field">
+    <%= f.label :house_in_local_museum, class: "label"  %>
+    <%= f.check_box :house_in_local_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :house_in_government_agency_or_uni, class: "label"  %>
+    <%= f.check_box :house_in_government_agency_or_uni %>
+  </div>
+
+  <div class="field">
+    <%= f.label :house_in_other, class: "label"  %>
+    <%= f.text_field :house_in_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_art_museum, class: "label" %>
+    <%= f.check_box :museum_type_art_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_modern_art_museum, class: "label"  %>
+    <%= f.check_box :museum_type_modern_art_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_natural_history_museum, class: "label"  %>
+    <%= f.check_box :museum_type_natural_history_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_science_museum_or_machinery_museum, class: "label"  %>
+    <%= f.check_box :museum_type_science_museum_or_machinery_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_anthropology_museum, class: "label"  %>
+    <%= f.check_box :museum_type_anthropology_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_history_and_archaeology_museum, class: "label"  %>
+    <%= f.check_box :museum_type_history_and_archaeology_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_local_museum, class: "label"  %>
+    <%= f.check_box :museum_type_local_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_university_or_institute_museum, class: "label"  %>
+    <%= f.check_box :museum_type_university_or_institute_museum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :museum_type_other, class: "label"  %>
+    <%= f.text_field :museum_type_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exhibition_type_permanent_collection, class: "label"  %>
+    <%= f.check_box :exhibition_type_permanent_collection %>
+  </div>
+
+  <div class="field">
+    <%= f.label :exhibition_type_temporary_rotated_collection, class: "label"  %>
+    <%= f.check_box :exhibition_type_temporary_rotated_collection %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_pottery, class: "label"  %>
+    <%= f.check_box :displayed_object_type_pottery %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_natural_history, class: "label"  %>
+    <%= f.check_box :displayed_object_type_natural_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_public_health_medicine, class: "label"  %>
+    <%= f.check_box :displayed_object_type_public_health_medicine %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_religious, class: "label"  %>
+    <%= f.check_box :displayed_object_type_religious %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_archaeology, class: "label"  %>
+    <%= f.check_box :displayed_object_type_archaeology %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_history, class: "label"  %>
+    <%= f.check_box :displayed_object_type_history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_way_of_life_local_wisdom, class: "label"  %>
+    <%= f.check_box :displayed_object_type_way_of_life_local_wisdom %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_historical_house_building, class: "label"  %>
+    <%= f.check_box :displayed_object_type_historical_house_building %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_textile_clothing, class: "label"  %>
+    <%= f.check_box :displayed_object_type_textile_clothing %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_performance_arts, class: "label"  %>
+    <%= f.check_box :displayed_object_type_performance_arts %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_tribes, class: "label"  %>
+    <%= f.check_box :displayed_object_type_tribes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_biography, class: "label"  %>
+    <%= f.check_box :displayed_object_type_biography %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_architecture, class: "label"  %>
+    <%= f.check_box :displayed_object_type_architecture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_military_war, class: "label"  %>
+    <%= f.check_box :displayed_object_type_military_war %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_science_and_technology, class: "label"  %>
+    <%= f.text_field :displayed_object_type_science_and_technology %>
+  </div>
+
+  <div class="field">
+    <%= f.label :displayed_object_type_other, class: "label"  %>
+    <%= f.text_field :displayed_object_type_other %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_website, class: "label"  %>
+    <%= f.text_field :current_website %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>

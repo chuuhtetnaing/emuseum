@@ -10,76 +10,28 @@
   </head>
 
   <body>
-  	<!--nav bar +start+-->
-  	<div id="navnavnav">
-  	<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" id="main_nav_bar">
-		
-		  	<%=link_to image_tag("logo.png" , class: "navbar-brand", id: "main_nav_bar_brand_img") %>
 
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-		    <ul class="navbar-nav mr-auto" id="main_nav_bar_content_ul">
-		      <li class="nav-item active main_nav_bar_content_li">
-		        <%= link_to "Home", emuseum_home_url, class: "nav-link"%>
-		      </li>
-		      <li class="nav-item active main_nav_bar_content_li">
-		        <%= link_to "Background", emuseum_background_url, class:"nav-link" %>
-		      </li>
-		      <li class="nav-item active main_nav_bar_content_li">
-		        <%= link_to "News", emuseum_news_url, class: "nav-link" %>
-		      </li>
-		      <li class="nav-item main_nav_bar_content_li">
-		        <a class="nav-link" href="#">Index Page</a>
-		      </li>
-		      <li class="nav-item main_nav_bar_content_li">
-		        <a class="nav-link" href="#">Subscription</a>
-		      </li>
-		    </ul>
-		    
-		  </div>
-		</nav>
-		</div>
+  	<% unless(admin_signed_in?) %>
+  	<!--nav bar +start+-->
+  		<%= render 'shared/user_navbar' %>
 		<!-- nav bar +end+ -->
+		<%else%>
+		<!--nav bar +start+-->
+  		<%= render 'shared/admin_navbar' %>
+		<!-- nav bar +end+ -->
+		<%end%>
+
+	<!--Devise Flash Massage +Start+-->
+	<!--
+		<p class="notice"><%= notice %></p>
+    	<p class="alert"><%= alert %></p>
+    -->
+	<!--Devise Flash Massage +End+-->
+
     <%= yield %>
 
     <!-- footer +Start+ -->
-		<div class="features-blue">
-		    <div class="container">
-		        <div class="intro">
-		            <h2 class="text-center">Features</h2>
-		            <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-		        </div>
-		        <div class="row features">
-		            <div class="col-md-4 col-sm-6 item">
-		                <h3 class="name"><i class="fa fa-camera-retro fa-2x"></i> Works everywhere</h3>
-		                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-		            </div>
-		            <div class="col-md-4 col-sm-6 item">
-		                <h3 class="name"><i class="fa fa-bug fa-2x" aria-hidden="true"></i>
- Always available</h3>
-		                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-		            </div>
-		            <div class="col-md-4 col-sm-6 item">
-		                <h3 class="name"><i class="fa fa-american-sign-language-interpreting fa-2x" aria-hidden="true"></i>
- Customizable</h3>
-		                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-		            </div>
-		            <div class="col-md-4 col-sm-6 item">
-		                <h3 class="name"><i class="fa fa-bar-chart fa-2x" aria-hidden="true"></i>
- Organic</h3>
-		                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-		            </div>
-		            <div class="col-md-4 col-sm-6 item">
-		                <h3 class="name"><i class="fa fa-car fa-2x" aria-hidden="true"></i>
- Fast</h3>
-		                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-		            </div>
-		            <div class="col-md-4 col-sm-6 item">
-		                <h3 class="name"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> Mobile-first</h3>
-		                <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		<!-- Footer +End+ -->
+		<%= render 'shared/footer' %>	
+	<!-- Footer +End+ -->
   </body>
 </html>

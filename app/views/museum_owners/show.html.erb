@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subscription:</strong>
+  <%= @museum_owner.subscription_id %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @museum_owner.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @museum_owner.password %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @museum_owner.url %>
+</p>
+
+<p>
+  <strong>Blocked:</strong>
+  <%= @museum_owner.blocked %>
+</p>
+
+<%= link_to 'Edit', edit_museum_owner_path(@museum_owner) %> |
+<%= link_to 'Back', museum_owners_path %>
