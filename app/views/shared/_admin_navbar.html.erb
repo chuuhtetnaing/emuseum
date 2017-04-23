@@ -1,54 +1,52 @@
-<div id="navnavnav">
-  		<nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded" id="main_nav_bar">
-		
-		  	<%=link_to image_tag("logo.png" , class: "navbar-brand", id: "main_nav_bar_brand_img") %>
 
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-		    <ul class="navbar-nav mr-auto" id="main_nav_bar_content_ul">
-		      <li class="nav-item active main_nav_bar_content_li">
-		        <%= link_to "Home", emuseum_home_url, class: "nav-link"%>
-		      </li>
-		      <li class="nav-item active main_nav_bar_content_li">
-		        <%= link_to "Background", emuseum_background_url, class:"nav-link" %>
-		      </li>
-		      <li class="nav-item active main_nav_bar_content_li">
-		        <%= link_to "News", emuseum_news_url, class: "nav-link" %>
-		      </li>
 
-		      <li class="nav-item dropdown main_nav_bar_content_li">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Email
-		        </a>
-		        <div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		        	<%= link_to "Welcome", welcome_emails_url, class:"dropdown-item" %>
-		        	<%= link_to "Confirmation", confirmation_emails_url, class:"dropdown-item" %>
-		        	<%= link_to "Reject", reject_emails_url	, class:"dropdown-item" %>
-		        	<%= link_to "Block", block_emails_url, class:"dropdown-item" %>
-		        	<%= link_to "Unblock", unblock_emails_url	, class:"dropdown-item" %>
-		        	
-		        	
-		        </div>
-		      </li>
+		<nav class="navbar navbar-toggleable-md navbar-light bg-faded" id="main_nav_bar">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%=link_to image_tag("logo.png" , class: "navbar-brand", id: "main_nav_bar_brand_img") %>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav" id="main_nav_bar_content_ul">
+		<li class="nav-item active main_nav_bar_content_li">
+			<%= link_to "Home", emuseum_home_url, class: "nav-link"%>
+		</li>
+		<li class="nav-item active main_nav_bar_content_li">
+			<%= link_to "Background", emuseum_background_url, class:"nav-link" %>
+		</li>
+		<li class="nav-item active main_nav_bar_content_li">
+			<%= link_to "News", emuseum_news_url, class: "nav-link" %>
+		</li>
 
-		      <li class="nav-item dropdown main_nav_bar_content_li">
-		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		          Manage
-		        </a>
-		        <div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		        	<%= link_to "Block/Unblock", museum_owners_url, class:"dropdown-item" %>
-		        	<%= link_to "Confirmation", admins_confirmation_url, class:"dropdown-item" %>
-		        	<%= link_to "Background", backgrounds_url, class:"dropdown-item" %>
-		        	<%= link_to "News", news_index_url, class:"dropdown-item" %>
-		        	
-		        </div>
-		      </li>
+		<li class="nav-item dropdown main_nav_bar_content_li">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+				Email
+			</a>
 
-		      <li class="nav-item main_nav_bar_content_li">
-		        <%= link_to('Logout', destroy_admin_session_path, :method => :delete, class:"nav-link") %> 
-		      </li>
-		      
-		    </ul>
-		    
-		  </div>
-		</nav>
-		</div>
+			<div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				<%= link_to "Welcome", welcome_emails_url, class:"dropdown-item" %>
+				<%= link_to "Confirmation", confirmation_emails_url, class:"dropdown-item" %>
+				<%= link_to "Reject", reject_emails_url	, class:"dropdown-item" %>
+				<%= link_to "Block", block_emails_url, class:"dropdown-item" %>
+				<%= link_to "Unblock", unblock_emails_url	, class:"dropdown-item" %>
+			</div>
+
+		</li>
+
+		<li class="nav-item dropdown main_nav_bar_content_li">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Manage
+			</a>
+			<div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				<%= link_to "Block/Unblock", museum_owners_url, class:"dropdown-item" %>
+				<%= link_to "Confirmation", admins_confirmation_url, class:"dropdown-item" %>
+				<%= link_to "Background", backgrounds_url, class:"dropdown-item" %>
+				<%= link_to "News", news_index_url, class:"dropdown-item" %>
+			</div>
+		</li>
+
+		<li class="nav-item main_nav_bar_content_li">
+			<%= link_to('Logout', destroy_admin_session_path, :method => :delete, class:"nav-link") %> 
+		</li>
+    </ul>
+  </div>
+</nav>
