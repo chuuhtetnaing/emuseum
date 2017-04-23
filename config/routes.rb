@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :reject_emails
+  resources :block_emails
+  resources :unblock_emails
+  resources :confirmation_emails
+  resources :welcome_emails
   resources :museum_owners
   devise_for :admins
   resources :subscriptions

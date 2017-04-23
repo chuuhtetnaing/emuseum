@@ -14,8 +14,20 @@
 		      <li class="nav-item active main_nav_bar_content_li">
 		        <%= link_to "News", emuseum_news_url, class: "nav-link" %>
 		      </li>
-		      <li class="nav-item main_nav_bar_content_li">
-		        <%= link_to "Confirmation", admins_confirmation_url, class:"nav-link" %>
+
+		      <li class="nav-item dropdown main_nav_bar_content_li">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Email
+		        </a>
+		        <div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		        	<%= link_to "Welcome", welcome_emails_url, class:"dropdown-item" %>
+		        	<%= link_to "Confirmation", confirmation_emails_url, class:"dropdown-item" %>
+		        	<%= link_to "Reject", reject_emails_url	, class:"dropdown-item" %>
+		        	<%= link_to "Block", block_emails_url, class:"dropdown-item" %>
+		        	<%= link_to "Unblock", unblock_emails_url	, class:"dropdown-item" %>
+		        	
+		        	
+		        </div>
 		      </li>
 
 		      <li class="nav-item dropdown main_nav_bar_content_li">
@@ -24,6 +36,7 @@
 		        </a>
 		        <div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		        	<%= link_to "Block/Unblock", museum_owners_url, class:"dropdown-item" %>
+		        	<%= link_to "Confirmation", admins_confirmation_url, class:"dropdown-item" %>
 		        	<%= link_to "Background", backgrounds_url, class:"dropdown-item" %>
 		        	<%= link_to "News", news_index_url, class:"dropdown-item" %>
 		        	

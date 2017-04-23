@@ -30,7 +30,8 @@ class SubscriptionsController < ApplicationController
     @museum_owner.org_name_eng = @subscriber.org_name_eng
     @museum_owner.current_website = @subscriber.current_website
     @museum_owner.save
-    UserMailer.confirmation_email(@museum_owner).deliver_now
+    @confirmation = ConfirmationEmail.first
+    UserMailer.confirmation_email(@museum_owner, @confirmation).deliver_now
     redirect_to admins_confirmation_url
   end
 
@@ -38,6 +39,8 @@ class SubscriptionsController < ApplicationController
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'rejected')
+    @reject_email = RejectEmail.first
+    UserMailer.reject_email(@subscriber, @reject_email).deliver_now
     redirect_to admins_confirmation_url
   end
 
@@ -45,6 +48,8 @@ class SubscriptionsController < ApplicationController
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'accepted')
+    @welcome_email = WelcomeEmail.first
+    UserMailer.welcome_email(@subscription, @welcome_email).deliver_now
     redirect_to admins_confirmation_url
   end
   # GET /subscriptions/new
@@ -63,7 +68,8 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save
-        UserMailer.welcome_email(@subscription).deliver_now
+        @welcome_email = WelcomeEmail.first
+        UserMailer.welcome_email(@subscription, @welcome_email).deliver_now
         format.html { redirect_to @subscription, notice: 'Subscription was successfully created.' }
         format.json { render :show, status: :created, location: @subscription }
       else

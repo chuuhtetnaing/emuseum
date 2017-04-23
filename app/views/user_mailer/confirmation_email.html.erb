@@ -4,6 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+    <%if(@confirmation.nil?)%>
     <h1>You have become the member of E-Museum Thailand, <%= @museum_owner.org_name_eng %></h1>
     <p>
       Here is your new museum @museum_owner.current_website,
@@ -13,5 +14,8 @@
       To login to the site, just follow this link: <%= @museum_owner.current_website %>/admin/login.
     </p>
     <p>Thanks for joining and have a great day!</p>
+    <% else %>
+      <%= @confirmation.content.html_safe %>
+    <% end %>
   </body>
 </html>

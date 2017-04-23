@@ -4,6 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+    <%if (@block_email.nil?) %>
     <h1>You have blocked from E-Museum Thailand Society for following reasons</h1>
     <p>
       1.
@@ -14,5 +15,10 @@
       Please fix as soon as possible.
     </p>
     <p>Thanks!</p>
+    <% else %>
+
+    <%= @block_email.content.html_safe%>
+
+    <% end %>
   </body>
 </html>

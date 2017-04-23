@@ -18,7 +18,8 @@ class MuseumOwnersController < ApplicationController
     @id = params[:sub_id]
     @museum_owner = MuseumOwner.find_by(id: @id)
     @museum_owner.update(blocked: true)
-    UserMailer.block_email(@museum_owner).deliver_now
+    @block_email = BlockEmail.first
+    UserMailer.block_email(@museum_owner, @block_email).deliver_now
     redirect_to museum_owners_url
   end
 
@@ -26,7 +27,8 @@ class MuseumOwnersController < ApplicationController
     @id = params[:sub_id]
     @museum_owner = MuseumOwner.find_by(id: @id)
     @museum_owner.update(blocked: false)
-    UserMailer.unblock_email(@museum_owner).deliver_now
+    @unblock_email = UnblockEmail.first
+    UserMailer.unblock_email(@museum_owner, @unblock_email).deliver_now
     redirect_to museum_owners_url
   end
 

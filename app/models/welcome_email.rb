@@ -1,0 +1,2 @@
+class WelcomeEmail < ApplicationRecord
+end

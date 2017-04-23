@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @unblock_email.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @unblock_email.content %>
+</p>
+
+<%= link_to 'Edit', edit_unblock_email_path(@unblock_email) %> |
+<%= link_to 'Back', unblock_emails_path %>

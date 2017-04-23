@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @reject_email.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @reject_email.content %>
+</p>
+
+<%= link_to 'Edit', edit_reject_email_path(@reject_email) %> |
+<%= link_to 'Back', reject_emails_path %>

@@ -1,0 +1,2 @@
+class UnblockEmail < ApplicationRecord
+end

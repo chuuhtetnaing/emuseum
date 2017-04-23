@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @confirmation_email.subject %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @confirmation_email.content %>
+</p>
+
+<%= link_to 'Edit', edit_confirmation_email_path(@confirmation_email) %> |
+<%= link_to 'Back', confirmation_emails_path %>

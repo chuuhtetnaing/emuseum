@@ -1,0 +1,2 @@
+class RejectEmail < ApplicationRecord
+end

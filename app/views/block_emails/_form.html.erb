@@ -1,0 +1,27 @@
+<%= form_for(block_email) do |f| %>
+  <% if block_email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(block_email.errors.count, "error") %> prohibited this block_email from being saved:</h2>
+
+      <ul>
+      <% block_email.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.cktext_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  	<% if (@reject_email.nil?) %>
+    <h1>You are rejected</h1>
+    <% else %>
+    	<%= @reject_email.content.html_safe %>
+    <% end %>
+  </body>
+</html>
