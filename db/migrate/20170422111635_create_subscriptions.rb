@@ -45,7 +45,7 @@ class CreateSubscriptions < ActiveRecord::Migration[5.0]
       t.boolean :displayed_object_type_biography
       t.boolean :displayed_object_type_architecture
       t.boolean :displayed_object_type_military_war
-      t.string :displayed_object_type_science_and_technology
+      t.boolean :displayed_object_type_science_and_technology
       t.string :displayed_object_type_other
       t.string :current_website
       t.string :accept_or_reject, default: "waiting"
