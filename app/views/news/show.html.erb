@@ -1,14 +1,18 @@
+<div class="container" id="div_news">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @news.title.html_safe %>
-</p>
+<h4>
+  <%= @news.title %>
+</h4>
 
 <p>
-  <strong>Content:</strong>
-  <%= @news.content %>
+  <%= @news.content.html_safe %>
 </p>
 
+<% if(admin_signed_in?) %>
 <%= link_to 'Edit', edit_news_path(@news) %> |
 <%= link_to 'Back', news_index_path %>
+<% else %>
+<%= link_to 'Back', emuseum_news_url %>
+<% end %>
+</div>

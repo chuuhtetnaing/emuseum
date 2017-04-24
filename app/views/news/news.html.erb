@@ -1,21 +1,24 @@
-<div class="container">
+<div class="container" id="div_news">
   <p id="notice"><%= notice %></p>
 
   <%unless @news.empty? %>
       <% @news.each do |news| %>
         <h4><%= news.title %></h4>
-        <%= news.content.html_safe %>
+        <%= news.content.first(600).html_safe %>............
+        
+        <td><%= link_to 'Read More', news %></td>
         <br><br>
       <% end %>
-  <div class="apple_pagination">
-    <div class="page_info">
-      <%= page_entries_info @news %>
-    </div>
-    <%= will_paginate @news, :container => false %>
-  </div>    
-
+  
   <%else%>
   <p> We are updating news </p>
   <%end%>
   
 </div>
+
+<div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @news %>
+    </div>
+    <%= will_paginate @news, :container => false %>
+  </div>    

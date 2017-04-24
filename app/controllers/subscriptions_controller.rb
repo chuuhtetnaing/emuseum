@@ -45,11 +45,21 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirmagain
+     o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map(&:to_a).flatten 
+    @string = (0...15).map { o[rand(o.length)] }.join 
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'accepted')
-    @welcome_email = WelcomeEmail.first
-    UserMailer.welcome_email(@subscription, @welcome_email).deliver_now
+    @museum_owner = MuseumOwner.new
+    @museum_owner.subscription_id = @subscriber.id
+    @museum_owner.username = @subscriber.email_address
+    @museum_owner.email_address = @subscriber.email_address
+    @museum_owner.password = @string
+    @museum_owner.org_name_eng = @subscriber.org_name_eng
+    @museum_owner.current_website = @subscriber.current_website
+    @museum_owner.save
+    @confirmation = ConfirmationEmail.first
+    UserMailer.confirmation_email(@museum_owner, @confirmation).deliver_now
     redirect_to admins_confirmation_url
   end
   # GET /subscriptions/new

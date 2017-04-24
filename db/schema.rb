@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20170423141106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bllock_emails", force: :cascade do |t|
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "block_emails", force: :cascade do |t|
     t.string   "subject"
     t.text     "content"
