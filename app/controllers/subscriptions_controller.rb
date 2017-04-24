@@ -17,8 +17,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirm
-    o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map(&:to_a).flatten 
-    @string = (0...15).map { o[rand(o.length)] }.join 
+    
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'accepted')
@@ -45,8 +44,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirmagain
-     o = [('a'..'z'), ('A'..'Z'), ('0'..'9')].map(&:to_a).flatten 
-    @string = (0...15).map { o[rand(o.length)] }.join 
+    
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'accepted')
