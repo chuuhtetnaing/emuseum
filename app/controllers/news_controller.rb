@@ -7,7 +7,7 @@ class NewsController < ApplicationController
     @news = News.paginate(:page => params[:page], :per_page => 3)
   end
   def news
-    @news = News.paginate(:page => params[:page], :per_page => 3)
+    @news = News.order(created_at: :asc).paginate(:page => params[:page], :per_page => 3)
   end
   # GET /news/1
   # GET /news/1.json
