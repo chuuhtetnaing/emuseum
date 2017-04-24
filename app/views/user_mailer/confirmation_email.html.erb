@@ -7,7 +7,7 @@
     <%if(@confirmation.nil?)%>
     <h1>You have become the member of E-Museum Thailand, <%= @museum_owner.org_name_eng %></h1>
     <p>
-      Here is your new museum @museum_owner.current_website,
+      Here is your new museum <%= @museum_owner.current_website %>,
       your username is: <%= @museum_owner.username %> and your password is: <%= @museum_owner.password %>.<br>
     </p>
     <p>
