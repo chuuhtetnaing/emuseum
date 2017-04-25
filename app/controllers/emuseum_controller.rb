@@ -7,4 +7,8 @@ class EmuseumController < ApplicationController
 
   def news
   end
+
+  def index
+  	@subscription = Subscription.all
+  end
 end

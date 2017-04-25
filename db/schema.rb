@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423141106) do
+ActiveRecord::Schema.define(version: 20170425144634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,12 @@ ActiveRecord::Schema.define(version: 20170423141106) do
   create_table "confirmation_emails", force: :cascade do |t|
     t.string   "subject"
     t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.string   "region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -145,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170423141106) do
     t.string   "accept_or_reject",                                default: "waiting"
     t.datetime "created_at",                                                          null: false
     t.datetime "updated_at",                                                          null: false
+    t.integer  "division_id"
   end
 
   create_table "unblock_emails", force: :cascade do |t|

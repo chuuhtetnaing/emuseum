@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :divisions
   resources :reject_emails
   resources :block_emails
   resources :unblock_emails
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root to: 'emuseum#home'
   get 'emuseum/home'
-
+  get 'emuseum/index'
   get 'emuseum/news' => 'news#news'
   get 'emuseum/background' => 'backgrounds#background' 
 
