@@ -7,7 +7,7 @@ end
 
 gem 'devise'
 gem 'ckeditor', github: 'galetahub/ckeditor'
-gem 'paperclip', "~> 5.0.0"
+gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'will_paginate', '~> 3.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
