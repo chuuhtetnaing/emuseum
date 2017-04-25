@@ -33,39 +33,36 @@
 <%#= video_tag "hello.mp4", :size => "320x240", :controls => true %>
 <!-- Card +Start+-->
 		<div class="container" id="card_body">
-			<h2>Recently Joined Museum</h2>
-			<div class = "row">
+      <h2>Recently Joined Museum</h2>
+      <% @museumowner.each do |sub| %>
+      		
+      		<% if @i % 3 == 0 %>
+      			<div class = "row">
+      		<% end %>
+			
 				<div class= "col-sm-4">
 					<div class="card" >
-					  <%= image_tag("subdomain_emuseum/cmru.jpg", class: "card-img-top recently_join_card", alt: "Card Image Cap") %>
+					  <%= image_tag sub.subscription.avatar.url, class: "card-img-top recently_join_card", alt: "Card Image Cap" %>
 					  <div class="card-block">
-					    <h4 class="card-title">CMRU Museum</h4>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					    <h4><%= sub.subscription.org_name_eng %></h4>
+					    <% unless sub.subscription.detail.nil? %>
+					    <p class="card-text"><%= sub.subscription.detail.first(100).html_safe %></p>
+					    <%end%>
+					    
+					    <%= link_to 'Read More', sub, class: "btn btn-primary" %>
 					  </div>
 					</div>
 				</div>
-				<div class= "col-sm-4">
-					<div class="card">
-					  <%= image_tag("subdomain_emuseum/treasury.jpg", class: "card-img-top recently_join_card", alt: "Card Image Cap")%>
-					  <div class="card-block">
-					    <h4 class="card-title">Treasury Museum</h4>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
-					  </div>
-					</div>
-				</div>
-				<div class= "col-sm-4">
-					<div class="card" >
-					  <%= image_tag("subdomain_emuseum/watsaimoon.jpg", class: "card-img-top recently_join_card", alt: "Card Image Cap")%>
-					  <div class="card-block">
-					    <h4 class="card-title">Watsaimoon Museum</h4>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. </p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
-					  </div>
-					</div>
-				</div>
-			</div>
-		</div>
+
+			<% if @j % 3 == 2%>
+      			</div>
+      			<br><br>
+      		<% end %>
+			<% @i = @i + 1 %>
+			<% @j = @j + 1 %>
+			
+      <% end %>
+      </div>
+      </div>
 	<!-- Card +End+-->
 	<br><br>

@@ -1,5 +1,8 @@
 class EmuseumController < ApplicationController
   def home
+  	@i = 0
+  	@j = 0
+  	@museumowner = MuseumOwner.last(3)
   end
 
   def background
