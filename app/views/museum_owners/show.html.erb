@@ -1,23 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Subscription:</strong>
-  <%= @museum_owner.subscription_id %>
+  <strong>Organization Name in English</strong>
+  <%= @museum_owner.subscription.org_name_eng %>
 </p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @museum_owner.username %>
+  <strong>Organization Name in Thai</strong>
+  <%= @museum_owner.subscription.org_name_thai %>
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @museum_owner.password %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @museum_owner.url %>
+  <%= image_tag @museum_owner.subscription.avatar.url, class: "museum_cover_photo", alt: "Card Image Cap" %>
 </p>
 
 <p>
@@ -25,5 +19,4 @@
   <%= @museum_owner.blocked %>
 </p>
 
-<%= link_to 'Edit', edit_museum_owner_path(@museum_owner) %> |
-<%= link_to 'Back', museum_owners_path %>
+<%= link_to 'Back', emuseum_index_url %>

@@ -9,6 +9,8 @@ class EmuseumController < ApplicationController
   end
 
   def index
-  	@subscription = Subscription.all
+  	@i = 0
+  	@j = 0
+  	@museumowner = MuseumOwner.all.paginate(:page => params[:page], :per_page => 6)
   end
 end
