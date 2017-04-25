@@ -1,22 +1,17 @@
+<div class="container" id="div_news">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Organization Name in English</strong>
+<h4>
   <%= @museum_owner.subscription.org_name_eng %>
-</p>
-
-<p>
-  <strong>Organization Name in Thai</strong>
-  <%= @museum_owner.subscription.org_name_thai %>
-</p>
+  <%="  " + @museum_owner.subscription.org_name_thai %>
+</h4>
 
 <p>
   <%= image_tag @museum_owner.subscription.avatar.url, class: "museum_cover_photo", alt: "Card Image Cap" %>
 </p>
 
-<p>
-  <strong>Blocked:</strong>
-  <%= @museum_owner.blocked %>
-</p>
+  <%= @museum_owner.subscription.detail.html_safe %>
 
 <%= link_to 'Back', emuseum_index_url %>
+
+</div>

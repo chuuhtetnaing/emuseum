@@ -278,9 +278,13 @@
   </div>
 
   <br>
-  <h5>Please upload the Museum Image</h5>    <%#= f.label :current_website, class: "label"  %>
+  <h5>Please fill your museum details and upload your current Museum Image</h5>    <%#= f.label :current_website, class: "label"  %>
   <div class="field">
     <%= f.file_field :avatar %>
+  </div>
+  <div class="field">
+    <%= f.label :detail %>
+    <%= f.cktext_area :detail %>
   </div>
 
   <br><br>
