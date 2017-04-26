@@ -42,7 +42,9 @@
 			
 				<div class= "col-sm-4">
 					<div class="card" >
+					<span class='zoom' id='ex1'>
 					  <%= image_tag sub.subscription.avatar.url, class: "card-img-top recently_join_card", alt: "Card Image Cap" %>
+					  </span>
 					  <div class="card-block">
 					    <h4><%= sub.subscription.org_name_eng %></h4>
 					    <% unless sub.subscription.detail.nil? %>
