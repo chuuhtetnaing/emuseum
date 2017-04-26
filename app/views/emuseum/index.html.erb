@@ -1,6 +1,6 @@
-    <br><br> 
+ <br><br> 
       <div class="container" id="card_body">
-      
+
       <% @museumowner.each do |sub| %>
       		
       		<% if @i % 3 == 0 %>
@@ -9,7 +9,9 @@
 			
 				<div class= "col-sm-4">
 					<div class="card" >
+					<span class='zoom' id='ex1'>
 					  <%= image_tag sub.subscription.avatar.url, class: "card-img-top recently_join_card", alt: "Card Image Cap" %>
+					  </span>
 					  <div class="card-block">
 					    <h4><%= sub.subscription.org_name_eng %></h4>
 					    <% unless sub.subscription.detail.nil? %>
@@ -39,3 +41,4 @@
     </div>
     <%= will_paginate @museumowner, :container => false %>
 </div>    
+

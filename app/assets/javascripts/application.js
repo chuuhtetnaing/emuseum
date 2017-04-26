@@ -17,3 +17,6 @@
 //= require turbolinks
 //= require_tree .
 //= require ckeditor/init
+$(document).ready(function(){
+			$('.zoom').zoom();
+		});
