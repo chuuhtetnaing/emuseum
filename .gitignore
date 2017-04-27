@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/public/ckeditor_assets/*
+/public/system/*
 # Ignore Byebug command history file.
 .byebug_history
