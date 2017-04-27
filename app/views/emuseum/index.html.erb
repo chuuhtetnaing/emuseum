@@ -1,3 +1,53 @@
+<br>
+	<div class="container">
+	<%= form_tag emuseum_index_url, method: "get" do %>
+		<div class="row">
+
+
+			<div class="col-3">
+			<%= select_tag(:division_id, options_from_collection_for_select(@division, :id, :region), prompt: "Choose Division", class: "custom-select col-3" ) %>
+			</div>
+
+			<div class="col-sm-3">
+				<%= select_tag(:museum_type , 
+					options_for_select(
+							[
+							    ['Art Museum', "museum_type_art_museum"],
+							    ['Modern Art Museum', "museum_type_modern_art_museum"],
+								['Natural History Museum', "museum_type_natural_history_museum"],
+								['Science/Machinery Museum', "museum_type_science_museum_or_machinery_museum"],
+								['Anthropology Museum', "museum_type_anthropology_museum"],
+								['History and Archaeology Museum', "museum_type_history_and_archaeology_museum"],
+								['Local Museum', "museum_type_local_museum"],
+								['University/Institute Museum', "museum_type_university_or_institute_museum"]
+							]
+						), prompt: "Choose Museum Type" , class: "custom-select col-3"
+					) %>
+			</div>
+
+		  	<div class="col-3">
+			<%= select_tag(:exhibition_type , 
+			options_for_select(
+					[
+					    ['Permanent Collection', "exhibition_type_permanent_collection"],
+					    ['Temporary Rotated Collection', "exhibition_type_temporary_rotated_collection"]
+					]
+				), prompt: "Choose Exhibition Type" , class: "custom-select col-3"
+			) %>
+		 	</div>
+
+		 	<div class="col-3">
+		  	<%= text_field_tag(:search, nil , placeholder: "Search For", class: "form-control") %>
+		  	</div>
+		 	
+		 	 
+		  	<%= submit_tag("Search" ,class: "btn btn-primary", style: "margin: 10px auto") %>
+		  	
+		  </div>
+	</div>
+  
+
+<% end %>
  <br><br> 
       <div class="container" id="card_body">
 
