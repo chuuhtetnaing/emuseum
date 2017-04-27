@@ -4,7 +4,8 @@
 <h4>
   <%= @news.title %>
 </h4>
-
+<p id="date"><%= @news.created_at.strftime("%d %b %Y (%a)") %></p>
+<%= image_tag @news.title_image.url, class: "img-fluid rounded mx-auto d-block", style: "width: 500px; height: 300px;"%>
 <p>
   <%= @news.content.html_safe %>
 </p>
