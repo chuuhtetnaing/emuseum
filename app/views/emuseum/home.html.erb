@@ -41,16 +41,17 @@
       		<% end %>
 			
 				<div class= "col-sm-4">
-					<div class="card" >
-					<span class='zoom' id='ex1'>
+					<div class="card custom_card" >
+					<span class='zoom'>
 					  <%= image_tag sub.subscription.avatar.url, class: "card-img-top recently_join_card", alt: "Card Image Cap" %>
 					  </span>
 					  <div class="card-block">
+					  	<div style="height: 10rem;">
 					    <h4><%= sub.subscription.org_name_eng %></h4>
 					    <% unless sub.subscription.detail.nil? %>
 					    <p class="card-text"><%= sub.subscription.detail.first(100).html_safe %></p>
 					    <%end%>
-					    
+					    </div>
 					    <%= link_to 'Read More', sub, class: "btn btn-primary" %>
 					  </div>
 					</div>
