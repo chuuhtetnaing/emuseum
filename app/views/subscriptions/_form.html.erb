@@ -12,6 +12,15 @@
     </div>
   <% end %>
   
+  <h5>Museum Information</h5>
+  <div class="field">
+    <%= f.text_field :museum_name_in_thai, label: "Museum Name (in Thai)" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :museum_name, label: "Museum Name (in English)" %>
+  </div>
+  <br>
+
   <h5>Organization Information</h5>
   <div class="field">
     <%#= f.label :org_name_thai, class: "label" %>
@@ -40,24 +49,34 @@
 
   <br>
   <h5>Type Of Organization</h5>
+  <%= f.form_group :type_of_organization do %>
+    <%= f.radio_button :type_of_organization, "Private Sector", label: "Private Sector" %>
+    <%= f.radio_button :type_of_organization, "Government Sector", label: "Government Sector" %>
+    <%= f.radio_button :type_of_organization, "Education Institute", label: "Education Institute" %>
+    <%= f.radio_button :type_of_organization, "other" %>
+    <%= f.text_field :type_of_org_other, label: "Other" %>
+
+
+  <% end %>
+
   <div class="field">
     <%#= f.label :type_of_org_private_sector, class: "label"  %>
-    <%= f.check_box :type_of_org_private_sector, label: "Private Sector" %>
+    <%#= f.check_box :type_of_org_private_sector, label: "Private Sector" %>
   </div>
 
   <div class="field">
     <%#= f.label :type_of_org_government_sector, class: "label"  %>
-    <%= f.check_box :type_of_org_government_sector, label: "Government Sector" %>
+    <%#= f.check_box :type_of_org_government_sector, label: "Government Sector" %>
   </div>
 
   <div class="field">
     <%#= f.label :type_of_org_education_institute, class: "label"  %>
-    <%= f.check_box :type_of_org_education_institute, label: "Education Institute" %>
+    <%#= f.check_box :type_of_org_education_institute, label: "Education Institute" %>
   </div>
 
   <div class="field">
     <%#= f.label :type_of_org_other, class: "label" %>
-    <%= f.text_field :type_of_org_other, label: "Other" %>
+    <%#= f.text_field :type_of_org_other, label: "Other" %>
   </div>
   <br>
   <h5>Address</h5>
@@ -92,28 +111,37 @@
   </div>
 
   <div class="field">
-  <%= f.collection_select :division_id, Division.order(:id),:id,:region, include_blank: true %>
+  <%= f.collection_select :division_id, Division.order(:id),:id,:region, {prompt: "Select Museum Region"}%>
+  <%#= f.collection_radio_buttons :division_id, Division.order(:id), :id, :region %>
+ 
   </div>
   <br>
   <h5>My museum is housed in</h5>
+  <%= f.form_group :housed_in do %>
+    <%= f.radio_button :housed_in, "Temple", label: "Temple" %>
+    <%= f.radio_button :housed_in, "Local Museum", label: "Local Museum" %>
+    <%= f.radio_button :housed_in, "Government Agency (or University)", label: "Government Agency (or University)" %>
+    <%= f.radio_button :housed_in,"other" %>
+    <%= f.text_field :house_in_other, label: "Other" %>
+  <% end %>
   <div class="field">
     <%#= f.label :house_in_temple, class: "label"  %>
-    <%= f.check_box :house_in_temple, label: "Temple" %>
+    <%#= f.check_box :house_in_temple, label: "Temple" %>
   </div>
 
   <div class="field">
     <%#= f.label :house_in_local_museum, class: "label"  %>
-    <%= f.check_box :house_in_local_museum, label: "Local Museum" %>
+    <%#= f.check_box :house_in_local_museum, label: "Local Museum" %>
   </div>
 
   <div class="field">
     <%#= f.label :house_in_government_agency_or_uni, class: "label"  %>
-    <%= f.check_box :house_in_government_agency_or_uni, label: "Government agency (or university)" %>
+    <%#= f.check_box :house_in_government_agency_or_uni, label: "Government agency (or university)" %>
   </div>
 
   <div class="field">
     <%#= f.label :house_in_other, class: "label"  %>
-    <%= f.text_field :house_in_other, label: "Other" %>
+    <%#= f.text_field :house_in_other, label: "Other" %>
   </div>
 
   <br>
@@ -170,14 +198,18 @@
   
   <br>
   <h5>Exhibition Type</h5>
+    <%= f.form_group :exhibition_type do %>
+      <%= f.radio_button :exhibition_type, "Permanent Collection", label: "Permanent Collection" %>
+      <%= f.radio_button :exhibition_type, "Temporary/Rotated Collection", label: "Temporary/Rotated Collection" %>
+    <% end %>
   <div class="field">
     <%#= f.label :exhibition_type_permanent_collection, class: "label"  %>
-    <%= f.check_box :exhibition_type_permanent_collection, label: "Permanent Collection" %>
+    <%#= f.check_box :exhibition_type_permanent_collection, label: "Permanent Collection" %>
   </div>
 
   <div class="field">
     <%#= f.label :exhibition_type_temporary_rotated_collection, class: "label"  %>
-    <%= f.check_box :exhibition_type_temporary_rotated_collection, label: "Temporary Rotated Collection" %>
+    <%#= f.check_box :exhibition_type_temporary_rotated_collection, label: "Temporary Rotated Collection" %>
   </div>
 
   <br>
@@ -272,7 +304,7 @@
   </div>
 
   <br>
-  <h5>Your Museum's Current Website URL (Don't fill if you don't have one</h5>    <%#= f.label :current_website, class: "label"  %>
+  <h5>Your Museum's Current Website URL (Don't fill if you do not have existing website)</h5>    <%#= f.label :current_website, class: "label"  %>
   <div class="field">
     <%= f.text_field :current_website, label: "Current Website" %>
   </div>

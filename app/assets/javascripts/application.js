@@ -19,4 +19,65 @@
 //= require ckeditor/init
 $(document).on('turbolinks:load', function() {
 			$('.zoom').zoom();
+		if($('#subscription_type_of_organization_other').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", false);
+        	}
+            else if($('#subscription_type_of_organization_private_sector').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_type_of_organization_government_sector').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_type_of_organization_education_institute').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", true);
+        	}
+        	if($('#subscription_housed_in_labelother').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", false);
+        	}
+            else if($('#subscription_housed_in_temple').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_housed_in_local_museum').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_housed_in_government_agency_or_university').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", true);
+        	}
 		});
+
+
+   
+   $(document).on('turbolinks:load', function () {
+        $("input:radio[name='subscription[type_of_organization]']").change( function () {
+        	if($('#subscription_type_of_organization_other').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", false);
+        	}
+            else if($('#subscription_type_of_organization_private_sector').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_type_of_organization_government_sector').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_type_of_organization_education_institute').is(':checked')){
+        		$("#subscription_type_of_org_other").attr("disabled", true);
+        	}
+        });
+    });
+
+   $(document).on('turbolinks:load', function () {
+        $("input:radio[name='subscription[housed_in]']").change( function () {
+        	if($('#subscription_housed_in_other').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", false);
+        	}
+            else if($('#subscription_housed_in_temple').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_housed_in_local_museum').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", true);
+        	}
+        	else if($('#subscription_housed_in_government_agency_or_university').is(':checked')){
+        		$("#subscription_house_in_other").attr("disabled", true);
+        	}
+        });
+    });
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427182726) do
+ActiveRecord::Schema.define(version: 20170428112544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,11 @@ ActiveRecord::Schema.define(version: 20170427182726) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text     "detail"
+    t.string   "exhibition_type"
+    t.string   "housed_in"
+    t.string   "type_of_organization"
+    t.string   "museum_name"
+    t.string   "museum_name_in_thai"
   end
 
   create_table "unblock_emails", force: :cascade do |t|

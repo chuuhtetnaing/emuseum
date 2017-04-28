@@ -29,8 +29,8 @@
 			<%= select_tag(:exhibition_type , 
 			options_for_select(
 					[
-					    ['Permanent Collection', "exhibition_type_permanent_collection"],
-					    ['Temporary Rotated Collection', "exhibition_type_temporary_rotated_collection"]
+					    ['Permanent Collection', "Permanent Collection"],
+					    ['Temporary Rotated Collection', "Temporary Rotated Collection"]
 					]
 				), prompt: "Choose Exhibition Type" , class: "custom-select col-3"
 			) %>
@@ -64,7 +64,12 @@
 					  </span>
 					  <div class="card-block">
 					  	<div style="height: 10rem;">
-					    <h4><%= sub.subscription.org_name_eng %></h4>
+					  	<% if sub.subscription.museum_name_in_thai.nil?  | sub.subscription.museum_name_in_thai != ''%>
+					  		<h4><%= sub.subscription.museum_name %></h4>
+					  	<% else %>
+					  		<h4><%= sub.subscription.museum_name_in_thai %></h4>
+					  	<% end %>
+					    
 					    <% unless sub.subscription.detail.nil? %>
 					    <p class="card-text"><%= sub.subscription.detail.first(100).html_safe %></p>
 					    <%end%>

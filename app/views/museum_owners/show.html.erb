@@ -1,17 +1,135 @@
 <div class="container" id="div_news">
 <p id="notice"><%= notice %></p>
 
-<h4>
-  <%= @museum_owner.subscription.org_name_eng %>
-  <%="  " + @museum_owner.subscription.org_name_thai %>
-</h4>
+<% if @museum_owner.subscription.museum_name_in_thai.nil? | @museum_owner.subscription.museum_name_in_thai != '' %>
+	<h4 style="text-align: center;"><%= @museum_owner.subscription.museum_name %></h4>
+<% else %>
+	<h4 style="text-align: center;"><%= @museum_owner.subscription.museum_name_in_thai %></h4>
+<% end %>
 
 <p>
   <%= image_tag @museum_owner.subscription.avatar.url, class: "museum_cover_photo", alt: "Card Image Cap" %>
 </p>
 
   <%= @museum_owner.subscription.detail.html_safe %>
+<br>
 
-<%= link_to 'Back', emuseum_index_url %>
+<h5>This Organization is a type of <%= @museum_owner.subscription.type_of_organization %>.</h5>
+
+<br>
+<h5>This Museum is also housed in 
+<% if @museum_owner.subscription.housed_in == "other"%>
+<%=@museum_owner.subscription.house_in_other%>.
+<% end %>
+<% if @museum_owner.subscription.housed_in != "other" && !@museum_owner.subscription.housed_in.empty?%>
+<%=@museum_owner.subscription.housed_in%>.
+<% end %>
+</h5>
+
+<br>
+<h5>This Museum is type of</h5>
+<ul>
+<% if @museum_owner.subscription.museum_type_art_museum == true %>
+	<li>Art Museum</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_modern_art_museum == true %>
+	<li>Modern Art Museum</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_natural_history_museum == true %>
+	<li>Natural History Museum</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_science_museum_or_machinery_museum == true %>
+	<li>Science Museum (or Machinery Museum)</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_anthropology_museum == true %>
+	<li>Anthropology Museum</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_history_and_archaeology_museum == true %>
+	<li>History and Archaeology Museum</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_local_museum == true %>
+	<li>Local Museum</li>
+<% end %>
+<% if @museum_owner.subscription.museum_type_university_or_institute_museum == true %>
+	<li>University (or Institute) Museum</li>
+<% end %>
+<% unless @museum_owner.subscription.museum_type_other.empty?%>
+	<li> <%= @museum_owner.subscription.museum_type_other %> </li>
+<% end %>
+</ul>
+
+<br>
+<h5>This Museum's Exhibition type is <%= @museum_owner.subscription.exhibition_type%></h5>
+
+<br>
+<h5>This Museum has following objects</h5>
+	<ul>
+		<% if @museum_owner.subscription.displayed_object_type_pottery == true %>
+			<li>Pottery</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_natural_history == true %>
+			<li>Natural History</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_public_health_medicine == true %>
+			<li>Public Health Medicine</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_religious == true %>
+			<li>Religious</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_archaeology == true %>
+			<li>Archaeology</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_history == true %>
+			<li>History</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_way_of_life_local_wisdom == true %>
+			<li>Way of Life/Local Wisdom</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_historical_house_building == true %>
+			<li>Historical House/Building</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_textile_clothing == true %>
+			<li>Textile/Clothing</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_performance_arts == true %>
+			<li>Performance Arts</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_tribes == true %>
+			<li>Tribes</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_biography == true %>
+			<li>Biography</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_architecture == true %>
+			<li>Architecture</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_military_war == true %>
+			<li>Military/War</li>
+		<% end %>
+		<% if @museum_owner.subscription.displayed_object_type_science_and_technology == true %>
+			<li>Science and Technology</li>
+		<% end %>
+		<% unless @museum_owner.subscription.displayed_object_type_other.empty? %>
+			<li><%= @museum_owner.subscription.displayed_object_type_other %></li>
+		<% end %>
+	</ul>
+	<br>
+	<h5>Address and Phone Number</h5>
+	<p>
+	<pre>  Street Address  - <%= @museum_owner.subscription.street_address %></pre>
+	<pre>  Tambon          - <%= @museum_owner.subscription.tambon %></pre>
+	<pre>  Amphur          - <%= @museum_owner.subscription.amphur %></pre>
+	<pre>  Province        - <%= @museum_owner.subscription.province %></pre>
+	<pre>  Postal_code     - <%= @museum_owner.subscription.postal_code %></pre>
+	<pre>  Phone Number    - <%= @museum_owner.subscription.telephone %></pre>
+	</p>
+	<br>
+	<% unless @museum_owner.subscription.current_website.empty? %>
+		<p style="text-align: center;">Visit to <%= link_to @museum_owner.subscription.museum_name, @museum_owner.subscription.current_website%></p>
+	<% else %>
+		<p style="text-align: center;">Visit to <%= link_to @museum_owner.subscription.museum_name, "http://www.emuseum.in.th"%>
+	<% end %>
+<br>
+<p style="text-align: center;"><%= link_to 'Back', emuseum_index_url %></p>
 
 </div>
