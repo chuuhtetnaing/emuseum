@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   post 'museum_owners/block'
   post 'museum_owners/unblock'
 
-  get '/.well-known/acme-challenge/kXCT5klnMh-HOF19aWO5P2pi5_B1x1HAwakmnuO_dBk' => 'emuseum#lets'
+  get '/.well-known/acme-challenge/ytrwJFUltjt889FVcWVlRmMC-lUHmdosznBU8ard-uU' => 'emuseum#lets'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
