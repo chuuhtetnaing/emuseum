@@ -23,42 +23,40 @@ class EmuseumController < ApplicationController
        @museumowner = MuseumOwner.all
        @mo_sub = Subscription.all
        
-      
-       
        case
-        when @exhibition_type.empty? | @exhibition_type != "" && @museum_type.empty? | @museum_type != ""  && @search.empty? | @search != "" 
+        when @exhibition_type.empty? && @museum_type.empty? && @search.empty?
           @mo_sub = @mo_sub.where(division_id: @division_id)
-        when @division_id.empty? | @division_id != ""  && @exhibition_type.empty? | @exhibition_type != "" && @museum_type.empty? | @museum_type != "" 
+        when @division_id.empty? && @exhibition_type.empty? && @museum_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
-        when @division_id.empty? | @division_id != ""  && @exhibition_type.empty? | @exhibition_type != "" && @search.empty? | @search != "" 
+        when @division_id.empty? && @exhibition_type.empty? && @search.empty?
           @mo_sub = @mo_sub.where("#{@museum_type}": true)
-        when @division_id.empty? | @division_id != ""  && @museum_type.empty? | @museum_type != ""  && @search.empty? | @search != "" 
+        when @division_id.empty? && @museum_type.empty? && @search.empty?
           @mo_sub = @mo_sub.where(exhibition_type: "#{@exhibition_type}")
-        when @division_id.empty? | @division_id != ""  && @exhibition_type.empty?
+        when @division_id.empty? && @exhibition_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where("#{@museum_type}")
-        when @division_id.empty? | @division_id != ""  && @museum_type.empty? | @museum_type != "" 
+        when @division_id.empty? && @museum_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where(exhibition_type: "#{@exhibition_type}")
-        when @division_id.empty? | @division_id != ""  && @search.empty? | @search != "" 
+        when @division_id.empty? && @search.empty?
           @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}")
-        when @exhibition_type.empty? | @exhibition_type != "" && @museum_type.empty? | @museum_type != "" 
+        when @exhibition_type.empty? && @museum_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where(division_id: @division_id)
-        when @exhibition_type.empty? | @exhibition_type != "" && @search.empty? | @search != "" 
+        when @exhibition_type.empty? && @search.empty?
           @mo_sub = @mo_sub.where("#{@museum_type}": true, division_id: @division_id)
-        when @museum_type.empty? | @museum_type != ""  && @search.empty? | @search != "" 
+        when @museum_type.empty? && @search.empty?
           @mo_sub = @mo_sub.where(exhibition_type: "#{@exhibition_type}", division_id: @division_id)
-        when @division_id.empty? | @division_id != "" 
+        when @division_id.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}")
         when @exhibition_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}", division_id: @division_id)
-        when @museum_type.empty? | @museum_type != "" 
+        when @museum_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}", division_id: @division_id)
-        when @search.empty? | @search != "" 
+        when @search.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
           @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}")
         end
