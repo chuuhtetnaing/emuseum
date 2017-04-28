@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post 'subscriptions/confirm'
   post 'subscriptions/reject'
   post 'subscriptions/confirmagain'
+  
+  get 'userdetail' => 'subscriptions#userdetail'
 
   post 'museum_owners/block'
   post 'museum_owners/unblock'

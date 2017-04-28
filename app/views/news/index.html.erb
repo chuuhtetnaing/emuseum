@@ -6,17 +6,22 @@
       <% @news.each do |news| %>
           <h4><%= news.title %></h4>
           <br>
-          <%= news.content.html_safe %>
-          <%= link_to 'Show', news %>
-          <%= link_to 'Edit', edit_news_path(news) %>
-          <%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= news.content.first(300).html_safe %>................................
+          <br>
+          <div style="text-align: center;">
+          <%= link_to 'Show', news, class:"btn btn-outline-info" %>
+          <%= link_to 'Edit', edit_news_path(news), class:"btn btn-outline-warning"  %>
+          <%= link_to 'Destroy', news, method: :delete, class:"btn btn-outline-danger", data: { confirm: 'Are you sure?' } %>
+          </div>
           <hr>
           <br>
           <br>
       <% end %>
 
   <br>
-  <%= link_to 'Write more news', new_news_path %>
+  <div style="text-align: center;">
+  <%= link_to 'Write more news', new_news_path, class: "btn btn-primary btn-lg" %>
+  </div>
   <br>
   <div class="apple_pagination">
     <div class="page_info">

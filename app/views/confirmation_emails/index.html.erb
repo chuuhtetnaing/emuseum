@@ -1,12 +1,13 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h1>Confirmation Emails</h1>
 
-<table>
+<table class= "table table-responsive">
   <thead>
     <tr>
       <th>Subject</th>
-      <th>Content</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +16,10 @@
     <% @confirmation_emails.each do |confirmation_email| %>
       <tr>
         <td><%= confirmation_email.subject %></td>
-        <td><%= confirmation_email.content.html_safe %></td>
-        <td><%= link_to 'Show', confirmation_email %></td>
-        <td><%= link_to 'Edit', edit_confirmation_email_path(confirmation_email) %></td>
-        <td><%= link_to 'Destroy', confirmation_email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= confirmation_email.html_safe %></td>
+        <td><%= link_to 'Show', confirmation_email, class:"btn btn-info"  %></td>
+        <td><%= link_to 'Edit', edit_confirmation_email_path(confirmation_email), class:"btn btn-warning"  %></td>
+        <td><%= link_to 'Destroy', confirmation_email, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +28,7 @@
 <br>
 
 <% if(@confirmation_emails.first.nil?) %>
-<%= link_to 'New Confirmation Email', new_confirmation_email_path %>
+<%= link_to 'New Confirmation Email', new_confirmation_email_path ,class: "btn btn-outline-primary btn-lg btn-block"%>
 <% end %>
+</div>
+<br>

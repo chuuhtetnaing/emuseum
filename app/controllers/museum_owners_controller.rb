@@ -4,6 +4,7 @@ class MuseumOwnersController < ApplicationController
   # GET /museum_owners
   # GET /museum_owners.json
   def index
+    @i=1
     @museum_owners = MuseumOwner.all
     @subscriptions = Subscription.all
     @sub_mo = @subscriptions.where(accept_or_reject: 'accepted')

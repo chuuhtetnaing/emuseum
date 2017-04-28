@@ -1,12 +1,13 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h1>Block Emails</h1>
 
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>Subject</th>
-      <th>Content</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +16,10 @@
     <% @block_emails.each do |block_email| %>
       <tr>
         <td><%= block_email.subject %></td>
-        <td><%= block_email.content.html_safe %></td>
-        <td><%= link_to 'Show', block_email %></td>
-        <td><%= link_to 'Edit', edit_block_email_path(block_email) %></td>
-        <td><%= link_to 'Destroy', block_email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= block_email.content.html_safe %></td>
+        <td><%= link_to 'Show', block_email, class:"btn btn-info"  %></td>
+        <td><%= link_to 'Edit', edit_block_email_path(block_email), class:"btn btn-warning"  %></td>
+        <td><%= link_to 'Destroy', block_email, class:"btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +28,7 @@
 <br>
 
 <% if(@block_emails.first.nil?) %>
-<%= link_to 'New Block Email', new_block_email_path %>
+<%= link_to 'New Block Email', new_block_email_path, class: "btn btn-outline-primary btn-lg btn-block" %>
 <% end %>
+</div>
+<br>

@@ -3,12 +3,16 @@
 
     <% @backgrounds.each do |background| %>
         <%= background.content.html_safe %>
-        <%= link_to 'Edit', edit_background_path(background) %>
-        <td><%= link_to 'Destroy', background, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <div style="text-align: center;">
+          <%= link_to 'Edit', edit_background_path(background), class:"btn btn-outline-warning" %>
+          <%= link_to 'Destroy', background, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </div>
+        
     <% end %>
     <%if @backgrounds.empty? %>
-    <p> There is no Background information. Please create one</p>
-    <%= link_to 'New Background', new_background_path %>
+    <h5 style="text-align: center"> There is no Background information. Please create one</h5>
+    <%= link_to 'New Background', new_background_path, class: "btn btn-outline-primary btn-lg btn-block" %>
     <%end%>
 </div>
+<br>
 

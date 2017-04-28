@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
+  require 'securerandom'
 
   # GET /subscriptions
   # GET /subscriptions.json
@@ -13,12 +14,16 @@ class SubscriptionsController < ApplicationController
   def show
   end
 
+  def userdetail
+    @subscription = Subscription.find(params[:id])
+  end
+
   def confirmation
+    @i = 1;
     @subscriptions = Subscription.all
   end
 
-  def confirm
-    
+  def confirm   
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'accepted')
@@ -26,7 +31,7 @@ class SubscriptionsController < ApplicationController
     @museum_owner.subscription_id = @subscriber.id
     @museum_owner.username = @subscriber.email_address
     @museum_owner.email_address = @subscriber.email_address
-    @museum_owner.password = @string
+    @museum_owner.password = SecureRandom.hex(10)
     @museum_owner.org_name_eng = @subscriber.org_name_eng
     @museum_owner.current_website = @subscriber.current_website
     @museum_owner.save
@@ -45,7 +50,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirmagain
-    
     @id = params[:sub_id]
     @subscriber = Subscription.find_by(id: @id)
     @subscriber.update(accept_or_reject: 'accepted')
@@ -53,7 +57,7 @@ class SubscriptionsController < ApplicationController
     @museum_owner.subscription_id = @subscriber.id
     @museum_owner.username = @subscriber.email_address
     @museum_owner.email_address = @subscriber.email_address
-    @museum_owner.password = @string
+    @museum_owner.password = SecureRandom.hex(10)
     @museum_owner.org_name_eng = @subscriber.org_name_eng
     @museum_owner.current_website = @subscriber.current_website
     @museum_owner.save

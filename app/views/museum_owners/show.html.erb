@@ -21,7 +21,7 @@
 <% if @museum_owner.subscription.housed_in == "other"%>
 <%=@museum_owner.subscription.house_in_other%>.
 <% end %>
-<% if @museum_owner.subscription.housed_in != "other" && !@museum_owner.subscription.housed_in.empty?%>
+<% if @museum_owner.subscription.housed_in != "other" && !@museum_owner.subscription.housed_in.nil?%>
 <%=@museum_owner.subscription.housed_in%>.
 <% end %>
 </h5>
@@ -53,7 +53,7 @@
 <% if @museum_owner.subscription.museum_type_university_or_institute_museum == true %>
 	<li>University (or Institute) Museum</li>
 <% end %>
-<% unless @museum_owner.subscription.museum_type_other.empty?%>
+<% unless @museum_owner.subscription.museum_type_other.nil?%>
 	<li> <%= @museum_owner.subscription.museum_type_other %> </li>
 <% end %>
 </ul>
@@ -109,7 +109,7 @@
 		<% if @museum_owner.subscription.displayed_object_type_science_and_technology == true %>
 			<li>Science and Technology</li>
 		<% end %>
-		<% unless @museum_owner.subscription.displayed_object_type_other.empty? %>
+		<% unless @museum_owner.subscription.displayed_object_type_other.nil? %>
 			<li><%= @museum_owner.subscription.displayed_object_type_other %></li>
 		<% end %>
 	</ul>
@@ -124,7 +124,7 @@
 	<pre>  Phone Number    - <%= @museum_owner.subscription.telephone %></pre>
 	</p>
 	<br>
-	<% unless @museum_owner.subscription.current_website.empty? %>
+	<% unless @museum_owner.subscription.current_website.nil? %>
 		<p style="text-align: center;">Visit to <%= link_to @museum_owner.subscription.museum_name, @museum_owner.subscription.current_website%></p>
 	<% else %>
 		<p style="text-align: center;">Visit to <%= link_to @museum_owner.subscription.museum_name, "http://www.emuseum.in.th"%>
