@@ -1,4 +1,9 @@
 class EmuseumController < ApplicationController
+  
+  def lets
+    render text: "kXCT5klnMh-HOF19aWO5P2pi5_B1x1HAwakmnuO_dBk.Ho2DabobDqZuiv6XHWzIenCn6fTCEtTzvoXSG1I3kws"
+  end
+
   def home
   	@i = 0
   	@j = 0
