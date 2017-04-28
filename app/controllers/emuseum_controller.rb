@@ -53,13 +53,15 @@ class EmuseumController < ApplicationController
           @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}")
         when @exhibition_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
-          @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}", division_id: @division_id)
+          @mo_sub = @mo_sub.where("#{@museum_type}": true, division_id: @division_id)
         when @museum_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
-          @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}", division_id: @division_id)
+          @mo_sub = @mo_sub.where(exhibition_type: "#{@exhibition_type}", division_id: @division_id)
         when @search.empty?
+          @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}", division_id: @division_id)
+        when !@search.empty? && !@division_id.empty? && !@exhibition_type.empty? && !@museum_type.empty?
           @mo_sub = @mo_sub.where("lower(museum_name) LIKE ? OR lower(detail) LIKE ?" , "%#{@search}%", "%#{@search}%")
-          @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}")
+          @mo_sub = @mo_sub.where("#{@museum_type}": true, exhibition_type: "#{@exhibition_type}", division_id: @division_id)
         end
         @mo_sub = @museumowner.where(subscription_id: @mo_sub.ids)
        @museumowner = @mo_sub.paginate(:page => params[:page], :per_page => 6)
