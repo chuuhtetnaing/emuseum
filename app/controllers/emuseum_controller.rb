@@ -3,7 +3,8 @@ class EmuseumController < ApplicationController
   def home
   	@i = 0
   	@j = 0
-  	@museumowner = MuseumOwner.last(3)
+  	@museumowner = MuseumOwner.all.where(blocked: false)
+    @museumowner = @museumowner.last(3)
   end
 
   def background
@@ -21,7 +22,7 @@ class EmuseumController < ApplicationController
        @division_id = params[:division_id]
        @exhibition_type = params[:exhibition_type]
        @search = params[:search].downcase
-       @museumowner = MuseumOwner.all
+       @museumowner = MuseumOwner.all.where(blocked: false)
        @mo_sub = Subscription.all
        
        case
@@ -67,7 +68,7 @@ class EmuseumController < ApplicationController
        @museumowner = @mo_sub.paginate(:page => params[:page], :per_page => 6)
 
     else
-        @museumowner = MuseumOwner.all.paginate(:page => params[:page], :per_page => 6)
+        @museumowner = MuseumOwner.all.where(blocked: false).paginate(:page => params[:page], :per_page => 6)
     end
   	
   end
