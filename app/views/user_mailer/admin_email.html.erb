@@ -10,11 +10,7 @@
 <% else %>
   <h4 style="text-align: center;"><%= @subscription.museum_name_in_thai %></h4>
 <% end %>
-
-<p>
-  <%= image_tag @subscription.avatar.url, class: "museum_cover_photo", alt: "Card Image Cap" %>
-</p>
-
+<br>
 <h5>This Organization is a type of <%= @subscription.type_of_organization %>.</h5>
 <br>
 
