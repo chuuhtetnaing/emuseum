@@ -34,6 +34,7 @@ class SubscriptionsController < ApplicationController
     @museum_owner.password = SecureRandom.hex(10)
     @museum_owner.org_name_eng = @subscriber.org_name_eng
     @museum_owner.current_website = @subscriber.current_website
+    @museum_owner.ConfirmedBy = current_admin.id
     @museum_owner.save
     @confirmation = ConfirmationEmail.first
     UserMailer.confirmation_email(@museum_owner, @confirmation).deliver_now
@@ -60,6 +61,7 @@ class SubscriptionsController < ApplicationController
     @museum_owner.password = SecureRandom.hex(10)
     @museum_owner.org_name_eng = @subscriber.org_name_eng
     @museum_owner.current_website = @subscriber.current_website
+    @museum_owner.ConfirmedBy = current_admin.id
     @museum_owner.save
     @confirmation = ConfirmationEmail.first
     UserMailer.confirmation_email(@museum_owner, @confirmation).deliver_now

@@ -18,6 +18,7 @@ class MuseumOwnersController < ApplicationController
   def block
     @id = params[:sub_id]
     @museum_owner = MuseumOwner.find_by(id: @id)
+    @museum_owner.update(BlockUnblockBy: current_admin.id)
     @museum_owner.update(blocked: true)
     @block_email = BlockEmail.first
     UserMailer.block_email(@museum_owner, @block_email).deliver_now
@@ -27,6 +28,7 @@ class MuseumOwnersController < ApplicationController
   def unblock
     @id = params[:sub_id]
     @museum_owner = MuseumOwner.find_by(id: @id)
+    @museum_owner.update(BlockUnblockBy: current_admin.id)
     @museum_owner.update(blocked: false)
     @unblock_email = UnblockEmail.first
     UserMailer.unblock_email(@museum_owner, @unblock_email).deliver_now

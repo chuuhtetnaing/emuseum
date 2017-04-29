@@ -13,8 +13,11 @@
       <th>Current Website</th>
       <th>Subscribed Date</th>
       <th>Confirmed Date</th>
+      <th>Confirm By</th>
       <th>Last Date of Block/Unblock</th>
+      <th>Block/Unblock By</th>
       <th>Block/Unblock</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,12 +32,19 @@
         <td><%= museum_owner.current_website %></td>
         <td><%= museum_owner.subscription.created_at.strftime("%Y-%m-%d")%></td>
         <td><%= museum_owner.created_at.strftime("%Y-%m-%d")%></td>
+        <td><%= Admin.find_by_id(museum_owner.ConfirmedBy).email%></td>
         <td><%= museum_owner.updated_at.strftime("%Y-%m-%d")%></td>
+        <% if Admin.find_by_id(museum_owner.BlockUnblockBy).nil? %>
+          <td>No Record</td>
+        <% else %>
+          <td><%= Admin.find_by_id(museum_owner.BlockUnblockBy).email%></td>
+        <% end %>
         <% if (museum_owner.blocked) #false%>
           <td><%= button_to "Unblock", {controller: :museum_owners, action: :unblock, sub_id: museum_owner.id} ,class: "btn btn-success"%></td>
         <% else %>
           <td><%= button_to "Block", {controller: :museum_owners, action: :block, sub_id: museum_owner.id} ,class: "btn btn-danger"%></td>
         <% end %>
+
         <td><%#= link_to 'Show', museum_owner %></td>
         <td><%#= link_to 'Edit', edit_museum_owner_path(museum_owner) %></td>
         <td><%#= link_to 'Destroy', museum_owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
