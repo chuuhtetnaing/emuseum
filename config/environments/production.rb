@@ -31,8 +31,8 @@ Rails.application.configure do
      :address => "smtp.gmail.com",
      :port => 587,
      :domain => "emuseum.herokuapp.com",
-     :user_name => "dlrowolleholleh@gmail.com",
-     :password => "autodanger9",
+     :user_name => "emuseumthailand@gmail.com",
+     :password => "12129090",
      :authentication => 'plain',
      :enable_starttls_auto => true
 }

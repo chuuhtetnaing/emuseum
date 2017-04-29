@@ -82,7 +82,11 @@ class SubscriptionsController < ApplicationController
     respond_to do |format|
       if @subscription.save
         @welcome_email = WelcomeEmail.first
+        @admin = Admin.all
         UserMailer.welcome_email(@subscription, @welcome_email).deliver_now
+        @admin.each do |admin| 
+          UserMailer.admin_email(admin, @subscription).deliver_now
+        end
         format.html { redirect_to @subscription, notice: 'Subscription was successfully created.' }
         format.json { render :show, status: :created, location: @subscription }
       else

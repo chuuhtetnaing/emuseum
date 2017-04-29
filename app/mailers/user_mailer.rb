@@ -1,6 +1,15 @@
 class UserMailer < ApplicationMailer
   default from: 'notifications@example.com'
- 
+  
+  def admin_email(admin, subscription)
+    @admin = admin
+    @subscription = subscription
+      mail(
+        to: @admin.email,
+        subject: "There is a new subscriber in Emuseum Thailand"
+      )
+  end
+
   def welcome_email(subscription, welcome_email)
     @subscription = subscription
     @welcome_email = welcome_email
