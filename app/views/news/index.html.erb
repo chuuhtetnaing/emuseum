@@ -17,17 +17,20 @@
           <br>
           <br>
       <% end %>
-
   <br>
+  <%if @news.empty? %>
+      <h5 style="text-align: center"> There is no News. Please create one</h5>
+      <%#= link_to 'Create News', new_news_path, class: "btn btn-outline-primary btn-lg btn-block" %>
+  <%end%>
   <div style="text-align: center;">
   <%= link_to 'Write more news', new_news_path, class: "btn btn-primary btn-lg" %>
   </div>
   <br>
+  
+</div>
   <div class="apple_pagination">
     <div class="page_info">
       <%= page_entries_info @news %>
     </div>
     <%= will_paginate @news, :container => false %>
   </div>    
-  
-</div>

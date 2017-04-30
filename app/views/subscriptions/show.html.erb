@@ -1,5 +1,11 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<p id="notice"><%#= notice %></p>
+<% if(current_admin) %>
+	<br>
+	<h4 align="center">You have successfully updated the Museum information!</h4>
+	<p align="center">You can see the changes in index page</p>
+	<br>
+<% else %>
 <h3 align="center">Thank You</h3>
 <h4 align="center">You have successfully registered!</h4>
 <br><br>
@@ -7,7 +13,7 @@
   <div class="form-actions">
       <%= link_to 'Back To Home', root_path %>
   </div>
-
+<% end %>
 </div>
 
 <br><br>

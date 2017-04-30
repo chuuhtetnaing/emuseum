@@ -74,8 +74,11 @@
 					    <p class="card-text"><%= sub.subscription.detail.first(100).html_safe %></p>
 					    <%end%>
 					    </div>
+					    <% if(current_admin) %>
+					    <%= link_to 'Edit', edit_subscription_path(sub.subscription), class: "btn btn-primary" %>
+					    <%else %>
 					    <%= link_to 'Read More', sub, class: "btn btn-primary" %>
-					   
+					   	<%end%>
 					  </div>
 					</div>
 				</div>

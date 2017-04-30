@@ -1,5 +1,5 @@
 <%#= javascript_include_tag "//cdn.ckeditor.com/4.6.2/full/ckeditor.js" %>
-<%= form_for(news) do |f| %>
+<%= bootstrap_form_for(news) do |f| %>
   <% if news.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:</h2>
@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
+    <%#= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
@@ -22,11 +22,11 @@
   </div>
   
   <div class="field">
-    <%= f.label :content %>
+    <%#= f.label :content %>
     <%= f.cktext_area :content %>
   </div>
-
-  <div class="actions">
+  <br>
+  <div class="actions", style="text-align: center;">
     <%= f.submit %>
   </div>
 <% end %>

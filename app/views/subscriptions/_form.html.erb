@@ -321,7 +321,12 @@
 
   <br><br>
   <div class="form-actions actions">
-      <%= f.primary "Sign Up", class: "btn btn-primary btn-lg" %>
+      <% if(current_admin) %>
+          <%= f.primary "Update", class: "btn btn-primary btn-lg" %>
+      <%else %>
+          <%= f.primary "Sign Up", class: "btn btn-primary btn-lg" %>
+      <%end%>
+      
   </div>
 </div>
 <% end %>
