@@ -5,13 +5,19 @@
   </head>
   <body>
     <%if(@confirmation.nil?)%>
-    <h1>You have become the member of E-Museum Thailand, <%= @museum_owner.org_name_eng %></h1>
+    <h1>You have become the member of E-Museum Thailand, <%= @museum_owner.museum_name %></h1>
+    <h4>Dear <%= @museum_owner.subscription.museum_name %>,</h4>
     <p>
-      Here is your new museum <%= @museum_owner.current_website %>,
-      your username is: <%= @museum_owner.username %> and your password is: <%= @museum_owner.password %>.<br>
+        I am admin of the e-museum Thailand we are glad to inform you that you have become the member of e-museum Thailand Here is your new subdomain museum <a href="http://www.emuseum.tk">www.emuseum.tk/subdomain/admins/sign_in.</a>.
     </p>
     <p>
-      To login to the site, just follow this link: <%= @museum_owner.current_website %>/admin/login.
+      Your username is <%= @museum_owner.username %>.
+    </p>
+    <p>
+      Your password is <%= @museum_owner.password %>.
+    </p>
+    <p>
+      To login to the subdomain e-Museum, just follow this link: <a href="http://www.emuseum.tk">www.emuseum.tk/subdomain/admins/sign_in.</a>.
     </p>
     <p>Thanks for joining and have a great day!</p>
     <% else %>

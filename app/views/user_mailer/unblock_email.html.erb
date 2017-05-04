@@ -5,13 +5,16 @@
   </head>
   <body>
     <%if(@unblock_email.nil?)%>
-    <h1>Welcome again! You have unblocked from E-Museum Thailand Society</h1>
+    <h4>Dear <%= @museum_owner.subscripiton.museum_name%></h4>
     <p>
-      Focus on following things to avoid future problems.
+      I am admin of the e-museum Thailand. I am here to inform you that your request for accessing to our website is unblocked, due to some misunderstanding on your usage of our website we temporarily blocked your access but after reading your explanation of your reply you stated that from now onwards you will follow all terms and conditions so on that word we again unblocked and provided your access.
     </p>
     <p>
+      We are very sorry if we have any mistake on our side hope you will understand our terms and policy and act according to that rules.
     </p>
-    <p>Thanks!</p>
+    <p>
+    Thank you! have a great day!
+    </p>
     <%else%>
       <%= @unblock_email.content.html_safe %>
     <%end%>

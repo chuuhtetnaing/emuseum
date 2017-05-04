@@ -5,20 +5,25 @@
   </head>
   <body>
     <%if (@block_email.nil?) %>
-    <h1>You have blocked from E-Museum Thailand Society for following reasons</h1>
+    <h4>Dear <%= @museum_owner.subscripiton.museum_name%></h4>
     <p>
-      1.
-      2.
-      3.
+    I am admin of the <a href="http://www.emuseum.tk">e-museum Thailand</a>. I am here to inform you that your access to our website is blocked due to the misuse of our site by you.
     </p>
     <p>
-      Please fix as soon as possible.
+    We blocked you because of one of the reasons.
     </p>
-    <p>Thanks!</p>
+    <p>
+      1. Your museum website is hacked.
+      2. We also find some irrelevant Information
+      3. There is copyright infringement in your e-Museum website.
+      4. Some objects did you mentioned are irrelevant objects
+      5. Some from your website are fake news
+      6. You are inactive for long time.
+    </p>
+    <p>This all factors combine together to block you from our website. </p>
+    <p> Thank you for your attention.</p>
     <% else %>
-
     <%= @block_email.content.html_safe%>
-
     <% end %>
   </body>
 </html>

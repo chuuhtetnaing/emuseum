@@ -5,13 +5,9 @@
   </head>
   <body>
     <% if (@welcome_email.nil?) %>
-    <h1>Welcome to example.com, <%= @subscription.org_name_eng %></h1>
-    <p>
-      You have successfully signed up to example.com,
-      your username is: .<br>
-    </p>
-    <p>
-      To login to the site, just follow this link: <%= @url %>.
+    <h1>Welcome to <a href="http://www.emuseum.tk">e-Museum Thailand</a>, <%= @subscription.museum_name %></h1>
+    <h4>Dear <%= @subscription.museum_name %>,</h4>
+    <p>I am admin of the e-museum website we are very glad to inform that your request for the subscription of the e-museum Thailand is successfully done and all the credentials and the details given by you are verified and stored in database and are perfectly secured as per our policy and at any cause your confidentiality and privacy will not be affected or disturbed, hope you will enjoy the services provided by event management system. We are feeling great and honored by your subscription to our e-museum Thailand.
     </p>
     <p>Thanks for joining and have a great day!</p>
     <% else %>

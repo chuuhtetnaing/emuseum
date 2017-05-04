@@ -4,8 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-  	<% if (@reject_email.nil?) %>
-    <h1>You are rejected</h1>
+  	<% if(@reject_email.nil?) %>
+    <h4>Dear <%= @subscription.museum_name%>,</h4>
+    <p>I am admin of the <a href="http://www.emuseum.tk">e-museum Thailand</a>. I am here to inform you that your request for the subscription to our website is denied because the credentials provided by you are not correct and not acceptable we suspect you as a person of misconduct, malicious and malpractice, so we deny your access to our website. To regain access to our website resend your details.</p>
+    <p>Thanks for joining and have a great day!</p>
     <% else %>
     	<%= @reject_email.content.html_safe %>
     <% end %>

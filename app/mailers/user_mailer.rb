@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
     @welcome_email = welcome_email
     @url  = 'http://example.com/login'
     if (@welcome_email.nil?)
-     mail(to: @subscription.email_address, subject: 'Welcome to Emuseum Thailand')
+     mail(to: @subscription.email_address, subject: 'Welcome to e-Museum Thailand')
     else
       mail(to: @subscription.email_address, subject: @welcome_email.subject)
     end
