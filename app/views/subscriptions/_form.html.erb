@@ -324,7 +324,15 @@
       <% if(current_admin) %>
           <%= f.primary "Update", class: "btn btn-primary btn-lg" %>
       <%else %>
-          <%= f.primary "Sign Up", class: "btn btn-primary btn-lg" %>
+          <%= f.primary "Sign Up", class: "sub_submit btn btn-primary btn-lg",
+          data: { confirm: 
+            '                                 Terms and License Agreements: 
+1.  By using this service, I agree that NECTEC can make the public content of my e-museum publicly available according to the Open Government License (Open Government License (OGL -- https://en.wikipedia.org/wiki/Open_Government_Licence). The OGL permits anyone to copy, publish, distribute, transmit and adapt the licensed work, and to exploit it both commercially and non-commercially. In return, the re-user of the licensed work has to acknowledge the source of the work.
+2.  NECTEC reserves the right to update functions of the software that hosts the e-museum service without formal notification.
+3.  NECTEC reserves the right to terminate the service membership in case of misconduct or inactive usage of the service.'
+             } 
+
+          %>
       <%end%>
       
   </div>
