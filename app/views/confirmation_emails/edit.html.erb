@@ -1,6 +1,9 @@
-<h1>Editing Confirmation Email</h1>
+<h1 style="text-align:center;">Editing Confirmation Email</h1>
 
 <%= render 'form', confirmation_email: @confirmation_email %>
 
-<%= link_to 'Show', @confirmation_email %> |
-<%= link_to 'Back', confirmation_emails_path %>
+<%#= link_to 'Show', @confirmation_email %>
+<div style="text-align:center;">
+<%= link_to 'Back', confirmation_emails_path, class:"btn btn-outline-info"  %>
+</div>
+<br>

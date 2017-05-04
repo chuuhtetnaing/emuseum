@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -7,8 +8,12 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @welcome_email.content %>
+  <%= @welcome_email.content.html_safe %>
 </p>
 
-<%= link_to 'Edit', edit_welcome_email_path(@welcome_email) %> |
-<%= link_to 'Back', welcome_emails_path %>
+<div style="text-align:center;">
+<%= link_to 'Edit', edit_welcome_email_path(@welcome_email), class:"btn btn-warning" %>
+<%= link_to 'Back', welcome_emails_path, class:"btn btn-danger"  %>
+</div>
+</div>
+<br>

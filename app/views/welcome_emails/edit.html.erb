@@ -1,6 +1,10 @@
-<h1>Editing Welcome Email</h1>
+
+<h1 style="text-align:center;">Editing Welcome Email</h1>
 
 <%= render 'form', welcome_email: @welcome_email %>
 
-<%= link_to 'Show', @welcome_email %> |
-<%= link_to 'Back', welcome_emails_path %>
+<%#= link_to 'Show', @welcome_email %>
+<div style="text-align:center;">
+<%= link_to 'Back', welcome_emails_path, class:"btn btn-outline-info"  %>
+</div>
+<br>

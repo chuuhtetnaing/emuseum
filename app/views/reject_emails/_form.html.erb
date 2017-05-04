@@ -1,4 +1,4 @@
-<%= form_for(reject_email) do |f| %>
+<%= bootstrap_form_for(reject_email) do |f| %>
   <% if reject_email.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reject_email.errors.count, "error") %> prohibited this reject_email from being saved:</h2>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :subject %>
+    <%#= f.label :subject %>
     <%= f.text_field :subject %>
   </div>
 
@@ -21,7 +21,9 @@
     <%= f.cktext_area :content %>
   </div>
 
-  <div class="actions">
+  <br>
+  <div class="actions" style="text-align:center;">
     <%= f.submit %>
   </div>
+  <br>
 <% end %>
