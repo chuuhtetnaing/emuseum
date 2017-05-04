@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   get 'emuseum/news' => 'news#news'
   get 'emuseum/background' => 'backgrounds#background' 
 
-
+  get 'admins/block_reason_statistics' => 'emuseum#block_reason_statistics'
+  get 'admins/object_statistics' => 'emuseum#object_statistics'
+  get 'admins/visitor_statistics' => 'emuseum#visitor_statistics'
+  get 'admins/mu_sub_statistics' => 'emuseum#mo_statistics'
   get 'admins/confirmation' => 'subscriptions#confirmation'
   post 'subscriptions/confirm'
   post 'subscriptions/reject'

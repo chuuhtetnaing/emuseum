@@ -45,6 +45,19 @@
 			</div>
 		</li>
 
+		<li class="nav-item dropdown main_nav_bar_content_li">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Statistics
+			</a>
+			<div id="nav_drop_down" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				<%= link_to "General Comparision", admins_mu_sub_statistics_url, class: "dropdown-item" %>
+				<%= link_to "Visitor Region", admins_visitor_statistics_url, class:"dropdown-item" %>
+				<%= link_to "Displayed Object", admins_object_statistics_url, class:"dropdown-item" %>
+				<%= link_to "Block Reason", admins_block_reason_statistics_url, class:"dropdown-item" %>
+				
+			</div>
+		</li>
+		
 		<li class="nav-item main_nav_bar_content_li">
 			<%= link_to('Logout', destroy_admin_session_path, :method => :delete, class:"nav-link") %> 
 		</li>

@@ -13,6 +13,18 @@ class EmuseumController < ApplicationController
   def news
   end
 
+  def mo_statictics
+  end
+
+  def visitor_statistics
+  end
+
+  def object_statistics
+  end
+
+  def block_reason_statistics
+  end
+
   def index
   	@i = 0
   	@j = 0
