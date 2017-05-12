@@ -56,4 +56,3 @@ set :deploy_to, "home/deploy/emuseum"
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-role :app, "54.190.14.187"
