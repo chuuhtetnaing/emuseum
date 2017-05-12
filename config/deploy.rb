@@ -1,16 +1,9 @@
 # config valid only for current version of Capistrano
 lock "3.8.1"
 
-set :application, "emuseum"
+set :application, 'emuseum'
 set :repo_url, "git@github.com:chuuhtetnaing/emuseum.git"
-set :migration_role, :db
-set :migration_servers, -> { primary(fetch(:migration_role)) }
-set :conditionally_migrate, true
-set :assets_roles, [:web, :app]
-set :assets_prefix, 'prepackaged-assets'
-set :rails_assets_groups, :assets
-set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
-set :keep_assets, 2
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 #added#
 set :branch, :master
 set :pty, true
