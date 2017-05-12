@@ -15,7 +15,7 @@ set :keep_assets, 2
 set :branch, :master
 set :pty, true
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/application.yml')
 set :keep_releases, 5
 set :rvm_type, :user
 set :rvm_ruby_version, 'jruby-1.7.19' # Edit this if you are using MRI Ruby
