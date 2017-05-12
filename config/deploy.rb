@@ -33,7 +33,7 @@ set :puma_preload_app, false
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "home/deploy/emuseum"
+set :deploy_to, "emuseum"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
