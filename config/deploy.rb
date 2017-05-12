@@ -3,7 +3,6 @@ lock "3.8.1"
 
 set :application, 'emuseum'
 set :repo_url, "git@github.com:chuuhtetnaing/emuseum.git"
-ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 #added#
 set :branch, :master
 set :pty, true
@@ -33,7 +32,7 @@ set :puma_preload_app, false
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "emuseum"
+set :deploy_to, "home/deploy/emuseum"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
