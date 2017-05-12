@@ -3,12 +3,19 @@ lock "3.8.1"
 
 set :application, "emuseum"
 set :repo_url, "git@github.com:chuuhtetnaing/emuseum.git"
-
+set :migration_role, :app
+set :migration_servers, -> { primary(fetch(:migration_role)) }
+set :conditionally_migrate, true
+set :assets_roles, [:web, :app]
+set :assets_prefix, 'prepackaged-assets'
+set :rails_assets_groups, :assets
+set :normalize_asset_timestamps, %w{public/images public/javascripts public/stylesheets}
+set :keep_assets, 2
 #added#
 set :branch, :master
 set :pty, true
-set :linked_files, %w{config/database.yml config/application.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 set :keep_releases, 5
 set :rvm_type, :user
 set :rvm_ruby_version, 'jruby-1.7.19' # Edit this if you are using MRI Ruby
