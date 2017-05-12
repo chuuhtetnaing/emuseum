@@ -16,10 +16,10 @@
 # group is considered to be the first unless any hosts have the primary
 # property set. Specify the username and a domain or IP for the server.
 # Don't use `:all`, it's a meta role.
-
- role :app, %w{54.190.14.187}, my_property: :my_value
- role :web, %w{deploy@54.190.14.187}, other_property: :other_value
- role :db,  %w{deploy@54.190.14.187}
+server '54.190.14.187', user: 'deploy', roles: %w{web app db}
+# role :app, %w{deploy@example.com}, my_property: :my_value
+# role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
+# role :db,  %w{deploy@example.com}
 
 
 
