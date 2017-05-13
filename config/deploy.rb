@@ -1,7 +1,7 @@
 # Change these
 server '54.190.14.187', roles: [:web, :app, :db], primary: true
 
-set :repo_url, "git@github.com:chuuhtetnaing/emuseum.git"
+set :repo_url, 'git@github.com:chuuhtetnaing/emuseum.git'
 set :application,     'emuseum'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
