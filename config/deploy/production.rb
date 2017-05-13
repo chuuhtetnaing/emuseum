@@ -18,7 +18,7 @@
 # Don't use `:all`, it's a meta role.
 set :stage, "production"
 set :branch, 'master'
-set :deploy_via :remote_cache
+set :deploy_via, :remote_cache
 server '54.190.14.187', user: 'deploy', roles: %w{web app db}
 
 role :app, %w{deploy@54.190.14.187}

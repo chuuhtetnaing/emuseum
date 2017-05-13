@@ -2,6 +2,7 @@
 lock "3.8.1"
 
 set :application, 'emuseum'
+set :user, 'deploy'
 set :repo_url, "git@github.com:chuuhtetnaing/emuseum.git"
 #added#
 set :branch, :master
