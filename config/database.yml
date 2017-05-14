@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: emuseum_production
-  username: 
-  password: 
+  username: deploy
+  password: autodanger9
