@@ -11,12 +11,12 @@ Rails.application.configure do
   config.eager_load = true
   config.paperclip_defaults = {
   storage: :s3,
-  s3_host_name: "s3.ap-southeast-1.amazonaws.com",
+  s3_host_name: 's3.ap-southeast-1.amazonaws.com',
   s3_credentials: {
-    bucket: "emuseum-assets",
-    access_key_id: "AKIAI6FCAXFL6ZQAI3VQ",
-    secret_access_key: "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",
-    s3_region: "ap-southeast-1",
+    bucket: 'emuseum-assets',
+    access_key_id: 'AKIAI6FCAXFL6ZQAI3VQ',
+    secret_access_key: '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',
+    s3_region: 'ap-southeast-1',
   }
 }
   # Full error reports are disabled and caching is turned on.
