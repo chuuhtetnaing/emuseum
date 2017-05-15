@@ -9,14 +9,15 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+
   config.paperclip_defaults = {
   storage: :s3,
-  s3_host_name: "s3.ap-southeast-1.amazonaws.com",
+  s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com",
   s3_credentials: {
-    bucket: "emuseum-assets",
-    access_key_id: "AKIAI6FCAXFL6ZQAI3VQ",
-    secret_access_key: "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",
-    s3_region: "ap-southeast-1",
+    bucket: ENV.fetch('S3_BUCKET_NAME'),
+    access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+    s3_region: ENV.fetch('AWS_REGION'),
   }
 }
   # Full error reports are disabled and caching is turned on.
