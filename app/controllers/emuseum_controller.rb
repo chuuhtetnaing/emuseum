@@ -7,6 +7,10 @@ class EmuseumController < ApplicationController
     @museumowner = @museumowner.last(3)
   end
 
+  def temp
+    
+  end
+
   def background
   end
 

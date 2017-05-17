@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   post 'subscriptions/confirm'
   post 'subscriptions/reject'
   post 'subscriptions/confirmagain'
-  
+  get '.well-known/acme-challenge/8zjwniMvBlzAB-GRG-CfuGTr_IhK8pl0unPz77RAt4w' => 'emuseum#temp'
+
+
   get 'userdetail' => 'subscriptions#userdetail'
 
   post 'museum_owners/block'
